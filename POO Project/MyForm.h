@@ -34,6 +34,8 @@ namespace POOProject {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Panel^ panel1;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,13 +50,23 @@ namespace POOProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
+			// 
+			// panel1
+			// 
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(167, 614);
+			this->panel1->TabIndex = 0;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(499, 362);
+			this->ClientSize = System::Drawing::Size(740, 614);
+			this->Controls->Add(this->panel1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
