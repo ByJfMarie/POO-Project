@@ -4,6 +4,9 @@
 #include "LoginForm.h"
 #include "PersonnelForm.h"
 #include "ClientForm.h"
+#include "StatForm.h"
+#include "StockForm.h"
+#include "CommandeForm.h"
 
 namespace POOProject {
 
@@ -192,6 +195,7 @@ namespace POOProject {
 			this->button5->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button5->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// button4
 			// 
@@ -212,6 +216,7 @@ namespace POOProject {
 			this->button4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button4->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// button3
 			// 
@@ -231,6 +236,7 @@ namespace POOProject {
 			this->button3->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button3->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button2
 			// 
@@ -399,7 +405,20 @@ namespace POOProject {
 		panelTop->Visible = true;
 		this->activeForm->Close();
 	}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
+		OpenChildForm(gcnew POOProject::CommandeForm(), sender);
+	}
+
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
+		OpenChildForm(gcnew POOProject::StockForm(), sender);
+	}
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
+		OpenChildForm(gcnew POOProject::StatForm(), sender);
+	}	
 };
 }

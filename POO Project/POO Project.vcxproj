@@ -125,12 +125,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientForm.cpp" />
+    <ClCompile Include="CommandeForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonnelForm.cpp" />
+    <ClCompile Include="StatForm.cpp" />
+    <ClCompile Include="StockForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CommandeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -142,10 +148,19 @@
     <ClInclude Include="PersonnelForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="StatForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="StockForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandeForm.resx">
+      <DependentUpon>CommandeForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
@@ -155,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelForm.resx">
       <DependentUpon>PersonnelForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatForm.resx">
+      <DependentUpon>StatForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockForm.resx">
+      <DependentUpon>StockForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

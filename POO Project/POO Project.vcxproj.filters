@@ -30,6 +30,15 @@
     <ClCompile Include="ClientForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="CommandeForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="StockForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="StatForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -42,6 +51,15 @@
       <Filter>Forms</Filter>
     </ClInclude>
     <ClInclude Include="ClientForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandeForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="StockForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="StatForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>
