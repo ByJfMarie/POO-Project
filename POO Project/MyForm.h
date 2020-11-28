@@ -1,4 +1,7 @@
 #pragma once
+#define NULL nullptr
+
+#include "LoginForm.h"
 
 namespace POOProject {
 
@@ -34,6 +37,7 @@ namespace POOProject {
 				delete components;
 			}
 		}
+	private: Form^ activeForm;
 	private: System::Windows::Forms::Panel^ panel1;
 
 	private: System::Windows::Forms::Panel^ panelLogo;
@@ -46,6 +50,7 @@ namespace POOProject {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ button7;
+	private: System::Windows::Forms::Panel^ panelDesktopPane;
 	protected:
 
 	private:
@@ -53,12 +58,30 @@ namespace POOProject {
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-
+	
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
+		/// 
+		void OpenChildForm(Form^ childForm, Object^ sender) {
+			if (this->activeForm!=nullptr)
+			{
+				this->activeForm->Close();
+			}
+			this->activeForm = childForm;
+			childForm->TopLevel = false;
+			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			childForm->Dock = DockStyle::Fill;
+			panelDesktopPane->Controls->Add(childForm);
+			panelDesktopPane->Tag = childForm;
+			childForm->BringToFront();
+			childForm->Show();
+
+
+
+		}
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
@@ -73,6 +96,7 @@ namespace POOProject {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panelLogo = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panelDesktopPane = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -116,6 +140,7 @@ namespace POOProject {
 			this->button7->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button7->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// button6
 			// 
@@ -259,12 +284,21 @@ namespace POOProject {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
+			// panelDesktopPane
+			// 
+			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
+			this->panelDesktopPane->Name = L"panelDesktopPane";
+			this->panelDesktopPane->Size = System::Drawing::Size(734, 561);
+			this->panelDesktopPane->TabIndex = 1;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(934, 561);
+			this->Controls->Add(this->panelDesktopPane);
 			this->Controls->Add(this->panel1);
 			this->MinimumSize = System::Drawing::Size(950, 600);
 			this->Name = L"MyForm";
@@ -282,6 +316,9 @@ namespace POOProject {
 		{
 			Application::Exit();
 		}
+	}
+	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenChildForm(gcnew POOProject::LoginForm(), sender);
 	}
 };
 }

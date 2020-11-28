@@ -13,15 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Forms">
+      <UniqueIdentifier>{3b11bc40-d63e-4ccc-9a6e-6f15560448d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LoginForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginForm.h">
+      <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
