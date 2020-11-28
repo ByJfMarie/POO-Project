@@ -46,6 +46,7 @@ namespace POOProject {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button9;
 
 
 
@@ -75,12 +76,13 @@ namespace POOProject {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -89,6 +91,7 @@ namespace POOProject {
 			// panelTop
 			// 
 			this->panelTop->BackColor = System::Drawing::Color::White;
+			this->panelTop->Controls->Add(this->button9);
 			this->panelTop->Controls->Add(this->label1);
 			this->panelTop->Controls->Add(this->pictureBox1);
 			this->panelTop->Controls->Add(this->button1);
@@ -153,6 +156,81 @@ namespace POOProject {
 			this->panel2->Size = System::Drawing::Size(660, 65);
 			this->panel2->TabIndex = 2;
 			// 
+			// button5
+			// 
+			this->button5->BackColor = System::Drawing::Color::Transparent;
+			this->button5->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button5->FlatAppearance->BorderSize = 0;
+			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
+			this->button5->Location = System::Drawing::Point(496, 0);
+			this->button5->Name = L"button5";
+			this->button5->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
+			this->button5->Size = System::Drawing::Size(165, 65);
+			this->button5->TabIndex = 3;
+			this->button5->Text = L"  Supprimer";
+			this->button5->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->button5->UseVisualStyleBackColor = false;
+			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::Color::Transparent;
+			this->button4->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button4->FlatAppearance->BorderSize = 0;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
+			this->button4->Location = System::Drawing::Point(331, 0);
+			this->button4->Name = L"button4";
+			this->button4->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
+			this->button4->Size = System::Drawing::Size(165, 65);
+			this->button4->TabIndex = 2;
+			this->button4->Text = L"  Modifier";
+			this->button4->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &PersonnelForm::button4_Click);
+			// 
+			// button3
+			// 
+			this->button3->BackColor = System::Drawing::Color::Transparent;
+			this->button3->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
+			this->button3->Location = System::Drawing::Point(166, 0);
+			this->button3->Name = L"button3";
+			this->button3->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
+			this->button3->Size = System::Drawing::Size(165, 65);
+			this->button3->TabIndex = 1;
+			this->button3->Text = L"  Afficher";
+			this->button3->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &PersonnelForm::button3_Click);
+			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::Color::Transparent;
+			this->button2->Dock = System::Windows::Forms::DockStyle::Left;
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->Location = System::Drawing::Point(0, 0);
+			this->button2->Name = L"button2";
+			this->button2->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
+			this->button2->Size = System::Drawing::Size(166, 65);
+			this->button2->TabIndex = 0;
+			this->button2->Text = L"  Créer";
+			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &PersonnelForm::button2_Click);
+			// 
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::White;
@@ -169,80 +247,17 @@ namespace POOProject {
 			this->panel4->Size = System::Drawing::Size(315, 311);
 			this->panel4->TabIndex = 4;
 			// 
-			// button2
+			// button9
 			// 
-			this->button2->BackColor = System::Drawing::Color::Transparent;
-			this->button2->Dock = System::Windows::Forms::DockStyle::Left;
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
-			this->button2->Location = System::Drawing::Point(0, 0);
-			this->button2->Name = L"button2";
-			this->button2->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
-			this->button2->Size = System::Drawing::Size(165, 65);
-			this->button2->TabIndex = 0;
-			this->button2->Text = L"  Créer";
-			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &PersonnelForm::button2_Click);
-			// 
-			// button3
-			// 
-			this->button3->BackColor = System::Drawing::Color::Transparent;
-			this->button3->Dock = System::Windows::Forms::DockStyle::Left;
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.Image")));
-			this->button3->Location = System::Drawing::Point(165, 0);
-			this->button3->Name = L"button3";
-			this->button3->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
-			this->button3->Size = System::Drawing::Size(165, 65);
-			this->button3->TabIndex = 1;
-			this->button3->Text = L"  Afficher";
-			this->button3->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
-			this->button3->UseVisualStyleBackColor = false;
-			this->button3->Click += gcnew System::EventHandler(this, &PersonnelForm::button3_Click);
-			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::Transparent;
-			this->button4->Dock = System::Windows::Forms::DockStyle::Left;
-			this->button4->FlatAppearance->BorderSize = 0;
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button4.Image")));
-			this->button4->Location = System::Drawing::Point(330, 0);
-			this->button4->Name = L"button4";
-			this->button4->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
-			this->button4->Size = System::Drawing::Size(165, 65);
-			this->button4->TabIndex = 2;
-			this->button4->Text = L"  Modifier";
-			this->button4->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
-			this->button4->UseVisualStyleBackColor = false;
-			this->button4->Click += gcnew System::EventHandler(this, &PersonnelForm::button4_Click);
-			// 
-			// button5
-			// 
-			this->button5->BackColor = System::Drawing::Color::Transparent;
-			this->button5->Dock = System::Windows::Forms::DockStyle::Left;
-			this->button5->FlatAppearance->BorderSize = 0;
-			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button5->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
-			this->button5->Location = System::Drawing::Point(495, 0);
-			this->button5->Name = L"button5";
-			this->button5->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
-			this->button5->Size = System::Drawing::Size(165, 65);
-			this->button5->TabIndex = 3;
-			this->button5->Text = L"  Supprimer";
-			this->button5->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
-			this->button5->UseVisualStyleBackColor = false;
+			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->Location = System::Drawing::Point(708, 0);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(50, 50);
+			this->button9->TabIndex = 4;
+			this->button9->UseVisualStyleBackColor = true;
 			// 
 			// PersonnelForm
 			// 

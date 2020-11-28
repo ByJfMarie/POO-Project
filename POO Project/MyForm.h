@@ -60,6 +60,7 @@ namespace POOProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Button^ button8;
+	private: System::Windows::Forms::Button^ button9;
 	protected:
 
 	private:
@@ -110,6 +111,7 @@ namespace POOProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -318,6 +320,7 @@ namespace POOProject {
 			// panelTop
 			// 
 			this->panelTop->BackColor = System::Drawing::Color::White;
+			this->panelTop->Controls->Add(this->button9);
 			this->panelTop->Controls->Add(this->label1);
 			this->panelTop->Controls->Add(this->pictureBox2);
 			this->panelTop->Controls->Add(this->button8);
@@ -358,6 +361,18 @@ namespace POOProject {
 			this->button8->Size = System::Drawing::Size(50, 50);
 			this->button8->TabIndex = 0;
 			this->button8->UseVisualStyleBackColor = true;
+			// 
+			// button9
+			// 
+			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->Location = System::Drawing::Point(709, 0);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(50, 50);
+			this->button9->TabIndex = 3;
+			this->button9->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
