@@ -42,6 +42,7 @@ namespace POOProject {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Panel^ panel2;
 
 	private:
 		/// <summary>
@@ -63,6 +64,7 @@ namespace POOProject {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -131,13 +133,23 @@ namespace POOProject {
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(200)), static_cast<System::Int32>(static_cast<System::Byte>(208)),
+				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->panel2->Location = System::Drawing::Point(0, 426);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(7, 50);
+			this->panel2->TabIndex = 6;
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(48)),
-				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
+				static_cast<System::Int32>(static_cast<System::Byte>(223)));
 			this->ClientSize = System::Drawing::Size(718, 522);
+			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);

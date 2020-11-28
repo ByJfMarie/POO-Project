@@ -2,6 +2,8 @@
 #define NULL nullptr
 
 #include "LoginForm.h"
+#include "PersonnelForm.h"
+#include "ClientForm.h"
 
 namespace POOProject {
 
@@ -51,6 +53,10 @@ namespace POOProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ button7;
 	private: System::Windows::Forms::Panel^ panelDesktopPane;
+	private: System::Windows::Forms::Panel^ panelTop;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::Button^ button8;
 	protected:
 
 	private:
@@ -97,9 +103,15 @@ namespace POOProject {
 			this->panelLogo = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelDesktopPane = (gcnew System::Windows::Forms::Panel());
+			this->panelTop = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panelTop->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -237,6 +249,7 @@ namespace POOProject {
 			this->button2->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button1
 			// 
@@ -256,6 +269,7 @@ namespace POOProject {
 			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button1->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// panel2
 			// 
@@ -283,29 +297,81 @@ namespace POOProject {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			// 
 			// panelDesktopPane
 			// 
+			this->panelDesktopPane->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)),
+				static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)));
 			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
 			this->panelDesktopPane->Name = L"panelDesktopPane";
-			this->panelDesktopPane->Size = System::Drawing::Size(734, 561);
+			this->panelDesktopPane->Size = System::Drawing::Size(759, 561);
 			this->panelDesktopPane->TabIndex = 1;
+			// 
+			// panelTop
+			// 
+			this->panelTop->BackColor = System::Drawing::Color::White;
+			this->panelTop->Controls->Add(this->label1);
+			this->panelTop->Controls->Add(this->pictureBox2);
+			this->panelTop->Controls->Add(this->button8);
+			this->panelTop->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panelTop->Location = System::Drawing::Point(200, 0);
+			this->panelTop->Name = L"panelTop";
+			this->panelTop->Size = System::Drawing::Size(759, 50);
+			this->panelTop->TabIndex = 2;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(86, 13);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(122, 21);
+			this->label1->TabIndex = 2;
+			this->label1->Text = L"Tableau De Bord";
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+			this->pictureBox2->Location = System::Drawing::Point(56, 12);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(24, 24);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
+			// 
+			// button8
+			// 
+			this->button8->FlatAppearance->BorderSize = 0;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button8.Image")));
+			this->button8->Location = System::Drawing::Point(0, 0);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(50, 50);
+			this->button8->TabIndex = 0;
+			this->button8->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(934, 561);
+			this->ClientSize = System::Drawing::Size(959, 561);
+			this->Controls->Add(this->panelTop);
 			this->Controls->Add(this->panelDesktopPane);
 			this->Controls->Add(this->panel1);
-			this->MinimumSize = System::Drawing::Size(950, 600);
+			this->MinimumSize = System::Drawing::Size(975, 600);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panelTop->ResumeLayout(false);
+			this->panelTop->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -318,7 +384,22 @@ namespace POOProject {
 		}
 	}
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
 		OpenChildForm(gcnew POOProject::LoginForm(), sender);
 	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
+		OpenChildForm(gcnew POOProject::PersonnelForm(), sender);
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = false;
+		OpenChildForm(gcnew POOProject::ClientForm(), sender);
+	}
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		panelTop->Visible = true;
+		this->activeForm->Close();
+	}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

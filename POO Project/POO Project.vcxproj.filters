@@ -24,12 +24,24 @@
     <ClCompile Include="LoginForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="PersonnelForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonnelForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>
