@@ -1,4 +1,5 @@
 #pragma once
+#include "Share.h"
 
 namespace POOProject {
 
@@ -8,6 +9,7 @@ namespace POOProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ShareFonctionality;
 
 	/// <summary>
 	/// Summary for PersonnelForm
@@ -15,14 +17,14 @@ namespace POOProject {
 	public ref class PersonnelForm : public System::Windows::Forms::Form
 	{
 	public:
-		PersonnelForm(void)
+		PersonnelForm(Login^ log)
 		{
 			InitializeComponent();
+			this->login = log;
 			//
 			//TODO: Add the constructor code here
 			//
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -34,6 +36,7 @@ namespace POOProject {
 				delete components;
 			}
 		}
+	protected: Login^ login;
 	private: System::Windows::Forms::Panel^ panelTop;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ button1;
@@ -54,7 +57,7 @@ namespace POOProject {
 
 
 
-	protected:
+	
 
 	private:
 		/// <summary>

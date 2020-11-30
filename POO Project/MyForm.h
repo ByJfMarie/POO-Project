@@ -7,6 +7,7 @@
 #include "StatForm.h"
 #include "StockForm.h"
 #include "CommandeForm.h"
+#include "Share.h"
 
 namespace POOProject {
 
@@ -16,6 +17,7 @@ namespace POOProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ShareFonctionality;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -42,6 +44,8 @@ namespace POOProject {
 				delete components;
 			}
 		}
+
+	Login^ log = gcnew Login;
 	private: Form^ activeForm;
 	private: System::Windows::Forms::Panel^ panel1;
 
@@ -61,6 +65,7 @@ namespace POOProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Button^ button10;
 	protected:
 
 	private:
@@ -108,13 +113,15 @@ namespace POOProject {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelDesktopPane = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panelDesktopPane->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
@@ -311,6 +318,7 @@ namespace POOProject {
 			// 
 			this->panelDesktopPane->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)));
+			this->panelDesktopPane->Controls->Add(this->button10);
 			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
 			this->panelDesktopPane->Name = L"panelDesktopPane";
@@ -329,6 +337,18 @@ namespace POOProject {
 			this->panelTop->Name = L"panelTop";
 			this->panelTop->Size = System::Drawing::Size(759, 50);
 			this->panelTop->TabIndex = 2;
+			// 
+			// button9
+			// 
+			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->Location = System::Drawing::Point(709, 0);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(50, 50);
+			this->button9->TabIndex = 3;
+			this->button9->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
@@ -362,17 +382,15 @@ namespace POOProject {
 			this->button8->TabIndex = 0;
 			this->button8->UseVisualStyleBackColor = true;
 			// 
-			// button9
+			// button10
 			// 
-			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
-			this->button9->FlatAppearance->BorderSize = 0;
-			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
-			this->button9->Location = System::Drawing::Point(709, 0);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(50, 50);
-			this->button9->TabIndex = 3;
-			this->button9->UseVisualStyleBackColor = true;
+			this->button10->Location = System::Drawing::Point(192, 254);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(75, 23);
+			this->button10->TabIndex = 0;
+			this->button10->Text = L"button10";
+			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// MyForm
 			// 
@@ -383,13 +401,17 @@ namespace POOProject {
 			this->Controls->Add(this->panelTop);
 			this->Controls->Add(this->panelDesktopPane);
 			this->Controls->Add(this->panel1);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(975, 600);
 			this->MinimumSize = System::Drawing::Size(975, 600);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panelDesktopPane->ResumeLayout(false);
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -406,11 +428,11 @@ namespace POOProject {
 	}
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::LoginForm(), sender);
+		OpenChildForm(gcnew POOProject::LoginForm(log), sender);
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::PersonnelForm(), sender);
+		OpenChildForm(gcnew POOProject::PersonnelForm(log), sender);
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
@@ -435,5 +457,8 @@ namespace POOProject {
 		panelTop->Visible = false;
 		OpenChildForm(gcnew POOProject::StatForm(), sender);
 	}	
+	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+		log->afficher();
+	}
 };
 }

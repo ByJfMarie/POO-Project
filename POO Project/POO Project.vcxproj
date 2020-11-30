@@ -129,6 +129,7 @@
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonnelForm.cpp" />
+    <ClCompile Include="Share.cpp" />
     <ClCompile Include="StatForm.cpp" />
     <ClCompile Include="StockForm.cpp" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="PersonnelForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Share.h" />
     <ClInclude Include="StatForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

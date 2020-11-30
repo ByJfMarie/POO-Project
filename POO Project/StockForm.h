@@ -46,6 +46,8 @@ namespace POOProject {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Panel^ panel4;
+	private: System::Windows::Forms::Panel^ panel3;
 
 	private:
 		/// <summary>
@@ -72,6 +74,8 @@ namespace POOProject {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -229,6 +233,22 @@ namespace POOProject {
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
 			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::Color::White;
+			this->panel4->Location = System::Drawing::Point(395, 175);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(315, 311);
+			this->panel4->TabIndex = 6;
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::White;
+			this->panel3->Location = System::Drawing::Point(50, 175);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(315, 314);
+			this->panel3->TabIndex = 5;
+			// 
 			// StockForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -236,6 +256,8 @@ namespace POOProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)));
 			this->ClientSize = System::Drawing::Size(758, 507);
+			this->Controls->Add(this->panel4);
+			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->panelTop);
