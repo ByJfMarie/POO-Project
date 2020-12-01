@@ -1,4 +1,6 @@
 #pragma once
+#include "Share.h"
+#include "DataViewer.h"
 
 namespace POOProject {
 
@@ -15,12 +17,50 @@ namespace POOProject {
 	public ref class CommandeForm : public System::Windows::Forms::Form
 	{
 	public:
-		CommandeForm(void)
+		CommandeForm(Login^ log)
 		{
 			InitializeComponent();
+			login = log;
 			//
 			//TODO: Add the constructor code here
 			//
+		}
+	protected: 
+		Login^ login;
+	private: System::Windows::Forms::Panel^ panel1;
+	protected:
+	private: System::Windows::Forms::Panel^ panelTop;
+	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Panel^ panel3;
+	private: System::Windows::Forms::Panel^ panel4;
+	private: System::Windows::Forms::Panel^ panel5;
+		   Form^ activeForm;
+
+		void OpenChildForm(Form^ childForm, Object^ sender) {
+			if (this->activeForm != nullptr)
+			{
+				this->activeForm->Close();
+			}
+			if (childForm == gcnew DataViewer(login, "COMMANDE")) {
+				login->setreturnForm(this->activeForm);
+			}
+			this->activeForm = childForm;
+			childForm->TopLevel = false;
+			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			childForm->Dock = DockStyle::Fill;
+			panel1->Controls->Add(childForm);
+			panel1->Tag = childForm;
+			childForm->BringToFront();
+			childForm->Show();
+
 		}
 
 	protected:
@@ -34,20 +74,20 @@ namespace POOProject {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Panel^ panelTop;
+
 	protected:
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button9;
-	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Panel^ panel3;
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -63,23 +103,38 @@ namespace POOProject {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(CommandeForm::typeid));
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->panel1->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
 			this->SuspendLayout();
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->panelTop);
+			this->panel1->Controls->Add(this->panel2);
+			this->panel1->Controls->Add(this->panel3);
+			this->panel1->Controls->Add(this->panel4);
+			this->panel1->Controls->Add(this->panel5);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(758, 507);
+			this->panel1->TabIndex = 0;
 			// 
 			// panelTop
 			// 
@@ -92,7 +147,19 @@ namespace POOProject {
 			this->panelTop->Location = System::Drawing::Point(0, 0);
 			this->panelTop->Name = L"panelTop";
 			this->panelTop->Size = System::Drawing::Size(758, 50);
-			this->panelTop->TabIndex = 2;
+			this->panelTop->TabIndex = 7;
+			// 
+			// button9
+			// 
+			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
+			this->button9->FlatAppearance->BorderSize = 0;
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
+			this->button9->Location = System::Drawing::Point(708, 0);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(50, 50);
+			this->button9->TabIndex = 4;
+			this->button9->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
@@ -126,15 +193,6 @@ namespace POOProject {
 			this->button1->TabIndex = 0;
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// panel1
-			// 
-			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(200)), static_cast<System::Int32>(static_cast<System::Byte>(208)),
-				static_cast<System::Int32>(static_cast<System::Byte>(244)));
-			this->panel1->Location = System::Drawing::Point(0, 246);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(7, 50);
-			this->panel1->TabIndex = 3;
-			// 
 			// panel2
 			// 
 			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -144,10 +202,10 @@ namespace POOProject {
 			this->panel2->Controls->Add(this->button4);
 			this->panel2->Controls->Add(this->button3);
 			this->panel2->Controls->Add(this->button2);
-			this->panel2->Location = System::Drawing::Point(50, 80);
+			this->panel2->Location = System::Drawing::Point(50, 89);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(660, 65);
-			this->panel2->TabIndex = 4;
+			this->panel2->TabIndex = 9;
 			// 
 			// button5
 			// 
@@ -202,6 +260,7 @@ namespace POOProject {
 			this->button3->Text = L"  Afficher";
 			this->button3->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &CommandeForm::button3_Click);
 			// 
 			// button2
 			// 
@@ -221,33 +280,30 @@ namespace POOProject {
 			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button2->UseVisualStyleBackColor = false;
 			// 
-			// button9
+			// panel3
 			// 
-			this->button9->Dock = System::Windows::Forms::DockStyle::Right;
-			this->button9->FlatAppearance->BorderSize = 0;
-			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button9.Image")));
-			this->button9->Location = System::Drawing::Point(708, 0);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(50, 50);
-			this->button9->TabIndex = 4;
-			this->button9->UseVisualStyleBackColor = true;
+			this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(200)), static_cast<System::Int32>(static_cast<System::Byte>(208)),
+				static_cast<System::Int32>(static_cast<System::Byte>(244)));
+			this->panel3->Location = System::Drawing::Point(0, 246);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(7, 50);
+			this->panel3->TabIndex = 8;
 			// 
 			// panel4
 			// 
 			this->panel4->BackColor = System::Drawing::Color::White;
-			this->panel4->Location = System::Drawing::Point(395, 175);
+			this->panel4->Location = System::Drawing::Point(395, 184);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(315, 311);
-			this->panel4->TabIndex = 6;
+			this->panel4->TabIndex = 11;
 			// 
-			// panel3
+			// panel5
 			// 
-			this->panel3->BackColor = System::Drawing::Color::White;
-			this->panel3->Location = System::Drawing::Point(50, 175);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(315, 314);
-			this->panel3->TabIndex = 5;
+			this->panel5->BackColor = System::Drawing::Color::White;
+			this->panel5->Location = System::Drawing::Point(50, 184);
+			this->panel5->Name = L"panel5";
+			this->panel5->Size = System::Drawing::Size(315, 314);
+			this->panel5->TabIndex = 10;
 			// 
 			// CommandeForm
 			// 
@@ -256,13 +312,10 @@ namespace POOProject {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)));
 			this->ClientSize = System::Drawing::Size(758, 507);
-			this->Controls->Add(this->panel4);
-			this->Controls->Add(this->panel3);
-			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->panelTop);
 			this->Name = L"CommandeForm";
 			this->Text = L"CommandeForm";
+			this->panel1->ResumeLayout(false);
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -271,5 +324,8 @@ namespace POOProject {
 
 		}
 #pragma endregion
-	};
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenChildForm(gcnew DataViewer(login, "COMMANDE"), sender);
+	}
+};
 }

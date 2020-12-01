@@ -7,6 +7,7 @@
 #include "StatForm.h"
 #include "StockForm.h"
 #include "CommandeForm.h"
+#include "DataViewer.h"
 #include "Share.h"
 
 namespace POOProject {
@@ -46,7 +47,7 @@ namespace POOProject {
 		}
 
 	Login^ log = gcnew Login;
-	private: Form^ activeForm;
+	public: Form^ activeForm;
 	private: System::Windows::Forms::Panel^ panel1;
 
 	private: System::Windows::Forms::Panel^ panelLogo;
@@ -65,7 +66,7 @@ namespace POOProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Button^ button9;
-	private: System::Windows::Forms::Button^ button10;
+
 	protected:
 
 	private:
@@ -80,11 +81,14 @@ namespace POOProject {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		/// 
-		void OpenChildForm(Form^ childForm, Object^ sender) {
+	public:	void OpenChildForm(Form^ childForm, Object^ sender) {
 			if (this->activeForm!=nullptr)
 			{
 				this->activeForm->Close();
 			}
+			/*if (childForm == gcnew DataViewer(log, "PERSONNEL")) {
+				log->setreturnForm(this->activeForm);
+			}*/
 			this->activeForm = childForm;
 			childForm->TopLevel = false;
 			childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
@@ -93,8 +97,6 @@ namespace POOProject {
 			panelDesktopPane->Tag = childForm;
 			childForm->BringToFront();
 			childForm->Show();
-
-
 
 		}
 		void InitializeComponent(void)
@@ -117,11 +119,9 @@ namespace POOProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->panelDesktopPane->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
@@ -318,7 +318,6 @@ namespace POOProject {
 			// 
 			this->panelDesktopPane->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)));
-			this->panelDesktopPane->Controls->Add(this->button10);
 			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
 			this->panelDesktopPane->Name = L"panelDesktopPane";
@@ -382,16 +381,6 @@ namespace POOProject {
 			this->button8->TabIndex = 0;
 			this->button8->UseVisualStyleBackColor = true;
 			// 
-			// button10
-			// 
-			this->button10->Location = System::Drawing::Point(192, 254);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(75, 23);
-			this->button10->TabIndex = 0;
-			this->button10->Text = L"button10";
-			this->button10->UseVisualStyleBackColor = true;
-			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -411,7 +400,6 @@ namespace POOProject {
 			this->panel1->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->panelDesktopPane->ResumeLayout(false);
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -436,7 +424,7 @@ namespace POOProject {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::ClientForm(), sender);
+		OpenChildForm(gcnew POOProject::ClientForm(log), sender);
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = true;
@@ -446,19 +434,18 @@ namespace POOProject {
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::CommandeForm(), sender);
+		OpenChildForm(gcnew POOProject::CommandeForm(log), sender);
 	}
 
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::StockForm(), sender);
+		OpenChildForm(gcnew POOProject::StockForm(log), sender);
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew POOProject::StatForm(), sender);
+		//OpenChildForm(gcnew POOProject::DataViewer(log, "PERSONNEL"), sender);
 	}	
 	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
-		log->afficher();
 	}
 };
 }

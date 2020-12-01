@@ -1,5 +1,7 @@
 #pragma once
 
+using namespace MySql::Data::MySqlClient;
+
 namespace ShareFonctionality {
 
 	using namespace System;
@@ -14,11 +16,15 @@ namespace ShareFonctionality {
 	{
 	public:
 		void connexion(String^, String^);
-		void afficher();
+		void connect(Object ^, BindingSource^, Object^);
+		//Form^ getreturnForm();
+		void setreturnForm(Form^ form);
 
 	private:
+		MySqlConnection^ con;
 		String^  id;
 		String^  mdp;
+	public:Form^ returnForm;
 
 	};
 

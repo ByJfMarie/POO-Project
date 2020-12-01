@@ -280,7 +280,7 @@ namespace POOProject {
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		login->afficher();
+		
 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {

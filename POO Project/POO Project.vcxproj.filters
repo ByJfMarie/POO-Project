@@ -42,6 +42,9 @@
     <ClCompile Include="Share.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataViewer.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Share.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataViewer.h">
+      <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

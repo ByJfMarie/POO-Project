@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
@@ -126,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CommandeForm.cpp" />
+    <ClCompile Include="DataViewer.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonnelForm.cpp" />
@@ -138,6 +140,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CommandeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DataViewer.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -163,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommandeForm.resx">
       <DependentUpon>CommandeForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataViewer.resx">
+      <DependentUpon>DataViewer.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
