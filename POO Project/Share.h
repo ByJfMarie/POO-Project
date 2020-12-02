@@ -26,6 +26,7 @@ namespace ShareFonctionality {
 		void createClient();
 		void deleteClient(String^ );
 		void createPersonel();
+		void deletePersonel(String^);
 
 	public:
 		MySqlConnection^ con;

@@ -175,4 +175,25 @@ namespace ShareFonctionality {
 			MessageBox::Show(ex->Message);
 		}
 	}
+
+	void Login::deletePersonel(String^ idp) {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM PERSONNEL WHERE ID_PERSONNEL='" + idp + "'", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+
+			MessageBox::Show("Personnel Supprimé");
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
 }

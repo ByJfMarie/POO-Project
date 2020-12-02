@@ -48,6 +48,9 @@
     <ClCompile Include="ClientModificateForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="PersonelModificateForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -78,6 +81,9 @@
       <Filter>Forms</Filter>
     </ClInclude>
     <ClInclude Include="ClientModificateForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonelModificateForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>

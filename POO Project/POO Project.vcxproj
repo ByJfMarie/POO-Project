@@ -131,6 +131,7 @@
     <ClCompile Include="DataViewer.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PersonelModificateForm.cpp" />
     <ClCompile Include="PersonnelForm.cpp" />
     <ClCompile Include="Share.cpp" />
     <ClCompile Include="StatForm.cpp" />
@@ -153,6 +154,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PersonelModificateForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PersonnelForm.h">
@@ -184,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonelModificateForm.resx">
+      <DependentUpon>PersonelModificateForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelForm.resx">
       <DependentUpon>PersonnelForm.h</DependentUpon>
