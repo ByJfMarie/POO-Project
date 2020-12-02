@@ -21,9 +21,13 @@ namespace ShareFonctionality {
 		void setreturnForm(Form^ form);
 		void p_getvalue(String^, String^, String^, String^, String^);
 		void c_getvalue(String^, String^, String^, String^, String^, String^);
+		//void s_getvalue();
+		//void cmd_getvalue();
 		void createClient();
+		void deleteClient(String^ );
+		void createPersonel();
 
-	private:
+	public:
 		MySqlConnection^ con;
 		String^  id;
 		String^  mdp;

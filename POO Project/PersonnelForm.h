@@ -369,6 +369,7 @@ namespace POOProject {
 			this->button2->Text = L"  Créer";
 			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &PersonnelForm::button2_Click_1);
 			// 
 			// panel5
 			// 
@@ -468,7 +469,7 @@ namespace POOProject {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		login->p_getvalue(textBoxNom->Text, textBoxPrenom->Text, textBoxAdresse->Text, textBoxDate->Text, textBoxSupID->Text);
+		
 		OpenChildForm(gcnew DataViewer(login, "PERSONNEL"), sender);
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -497,5 +498,9 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		login->p_getvalue(textBoxNom->Text, textBoxPrenom->Text, textBoxAdresse->Text, textBoxDate->Text, textBoxSupID->Text);
+		login->createPersonel();
+	}
 };
 }

@@ -143,7 +143,7 @@ namespace POOProject {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(200, 561);
+			this->panel1->Size = System::Drawing::Size(200, 581);
 			this->panel1->TabIndex = 0;
 			// 
 			// button7
@@ -175,7 +175,7 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->button6->ForeColor = System::Drawing::Color::White;
 			this->button6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button6.Image")));
-			this->button6->Location = System::Drawing::Point(0, 511);
+			this->button6->Location = System::Drawing::Point(0, 531);
 			this->button6->Name = L"button6";
 			this->button6->Padding = System::Windows::Forms::Padding(25, 0, 0, 0);
 			this->button6->Size = System::Drawing::Size(200, 50);
@@ -321,7 +321,7 @@ namespace POOProject {
 			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
 			this->panelDesktopPane->Name = L"panelDesktopPane";
-			this->panelDesktopPane->Size = System::Drawing::Size(759, 561);
+			this->panelDesktopPane->Size = System::Drawing::Size(759, 581);
 			this->panelDesktopPane->TabIndex = 1;
 			// 
 			// panelTop
@@ -386,12 +386,12 @@ namespace POOProject {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(959, 561);
+			this->ClientSize = System::Drawing::Size(959, 581);
 			this->Controls->Add(this->panelTop);
 			this->Controls->Add(this->panelDesktopPane);
 			this->Controls->Add(this->panel1);
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(975, 600);
+			this->MaximumSize = System::Drawing::Size(975, 620);
 			this->MinimumSize = System::Drawing::Size(975, 600);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;

@@ -96,6 +96,15 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
+		else if (this->table == "PERSONNEL")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ID_PERSONNEL as NumPersonnel,NOM_PERSONNEL as Nom, PRENOM_PERSONNEL as Prenom, DATE as DateEmbauche,ADRESSE as Adresse FROM PERSONNEL, DATE , ADRESSE WHERE DATE.ID_DATE=PERSONNEL.ID_DATEENBAUCHE AND ADRESSE.ID_ADRESSE=PERSONNEL.ID_ADRESSEP ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+
+		}
 		else
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from " + this->table, con);

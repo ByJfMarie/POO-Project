@@ -122,4 +122,57 @@ namespace ShareFonctionality {
 		}
 
 	}
+
+	void Login::deleteClient(String^ idc) {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM CLIENT WHERE ID_CLIENT='"+idc+"'", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+
+			MessageBox::Show("Client Supprimé");
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::createPersonel() {
+		
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','"+p_adresse+"' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='"+p_adresse+"')", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+			MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO DATE(ID_DATE,DATE) SELECT '','"+p_date+"' WHERE NOT EXISTS (SELECT * FROM DATE WHERE DATE='" + p_date + "')", con);
+			con->Open();
+			dr = cmd1->ExecuteReader();
+			con->Close();
+
+			MySqlCommand^ cmd2 = gcnew MySqlCommand("INSERT INTO PERSONNEL VALUES('', (SELECT ID_ADRESSE FROM ADRESSE WHERE adresse = '"+p_adresse+"'), '"+sup_id+"',(SELECT ID_DATE FROM DATE WHERE DATE = '"+p_date+"'), '"+p_nom+"', '"+p_prenom+"')", con);
+			con->Open();
+			dr = cmd2->ExecuteReader();
+			con->Close();
+
+			MessageBox::Show("Personel Ajouté");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
 }
