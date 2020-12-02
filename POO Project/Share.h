@@ -19,11 +19,31 @@ namespace ShareFonctionality {
 		void connect(Object ^, BindingSource^, Object^);
 		//Form^ getreturnForm();
 		void setreturnForm(Form^ form);
+		void p_getvalue(String^, String^, String^, String^, String^);
+		void c_getvalue(String^, String^, String^, String^, String^, String^);
+		void createClient();
 
 	private:
 		MySqlConnection^ con;
 		String^  id;
 		String^  mdp;
+
+	public:
+		//Personel value
+		String^ p_nom;
+		String^ p_prenom;
+		String^ p_adresse;
+		String^ p_date;
+		String^ sup_id;
+
+		// Client Value
+		String^ c_nom;
+		String^ c_prenom;
+		String^ c_date_aniv;
+		String^ c_date_achat;
+		String^ c_adresse_l;
+		String^ c_adresse_f;
+
 	public:Form^ returnForm;
 
 	};

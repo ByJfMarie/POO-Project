@@ -53,6 +53,24 @@ namespace POOProject {
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::Panel^ panel5;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ textBoxAdressF;
+
+	private: System::Windows::Forms::TextBox^ textBoxAnniv;
+	private: System::Windows::Forms::TextBox^ textBoxAdressL;
+
+
+	private: System::Windows::Forms::TextBox^ textBoxAchat;
+
+	private: System::Windows::Forms::TextBox^ textBoxPrenom;
+
+	private: System::Windows::Forms::TextBox^ textBoxNom;
+
 
 	protected:
 
@@ -116,10 +134,23 @@ namespace POOProject {
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->textBoxAdressF = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxAnniv = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxAdressL = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxAchat = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxPrenom = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxNom = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
+			this->panel5->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -132,7 +163,7 @@ namespace POOProject {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(758, 507);
+			this->panel1->Size = System::Drawing::Size(758, 529);
 			this->panel1->TabIndex = 0;
 			// 
 			// panelTop
@@ -278,6 +309,7 @@ namespace POOProject {
 			this->button2->Text = L"  Créer";
 			this->button2->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &ClientForm::button2_Click);
 			// 
 			// panel3
 			// 
@@ -293,16 +325,149 @@ namespace POOProject {
 			this->panel4->BackColor = System::Drawing::Color::White;
 			this->panel4->Location = System::Drawing::Point(395, 184);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(315, 311);
+			this->panel4->Size = System::Drawing::Size(315, 345);
 			this->panel4->TabIndex = 11;
 			// 
 			// panel5
 			// 
 			this->panel5->BackColor = System::Drawing::Color::White;
+			this->panel5->Controls->Add(this->textBoxAdressF);
+			this->panel5->Controls->Add(this->textBoxAnniv);
+			this->panel5->Controls->Add(this->textBoxAdressL);
+			this->panel5->Controls->Add(this->textBoxAchat);
+			this->panel5->Controls->Add(this->textBoxPrenom);
+			this->panel5->Controls->Add(this->textBoxNom);
+			this->panel5->Controls->Add(this->label7);
+			this->panel5->Controls->Add(this->label6);
+			this->panel5->Controls->Add(this->label5);
+			this->panel5->Controls->Add(this->label4);
+			this->panel5->Controls->Add(this->label3);
+			this->panel5->Controls->Add(this->label2);
 			this->panel5->Location = System::Drawing::Point(50, 184);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(315, 314);
+			this->panel5->Size = System::Drawing::Size(315, 345);
 			this->panel5->TabIndex = 10;
+			// 
+			// textBoxAdressF
+			// 
+			this->textBoxAdressF->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxAdressF->Location = System::Drawing::Point(35, 255);
+			this->textBoxAdressF->Name = L"textBoxAdressF";
+			this->textBoxAdressF->Size = System::Drawing::Size(242, 22);
+			this->textBoxAdressF->TabIndex = 11;
+			// 
+			// textBoxAnniv
+			// 
+			this->textBoxAnniv->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxAnniv->Location = System::Drawing::Point(35, 145);
+			this->textBoxAnniv->Name = L"textBoxAnniv";
+			this->textBoxAnniv->Size = System::Drawing::Size(242, 22);
+			this->textBoxAnniv->TabIndex = 10;
+			// 
+			// textBoxAdressL
+			// 
+			this->textBoxAdressL->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxAdressL->Location = System::Drawing::Point(35, 310);
+			this->textBoxAdressL->Name = L"textBoxAdressL";
+			this->textBoxAdressL->Size = System::Drawing::Size(242, 22);
+			this->textBoxAdressL->TabIndex = 9;
+			// 
+			// textBoxAchat
+			// 
+			this->textBoxAchat->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxAchat->Location = System::Drawing::Point(35, 200);
+			this->textBoxAchat->Name = L"textBoxAchat";
+			this->textBoxAchat->Size = System::Drawing::Size(242, 22);
+			this->textBoxAchat->TabIndex = 8;
+			// 
+			// textBoxPrenom
+			// 
+			this->textBoxPrenom->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxPrenom->Location = System::Drawing::Point(35, 90);
+			this->textBoxPrenom->Name = L"textBoxPrenom";
+			this->textBoxPrenom->Size = System::Drawing::Size(242, 22);
+			this->textBoxPrenom->TabIndex = 7;
+			// 
+			// textBoxNom
+			// 
+			this->textBoxNom->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxNom->Location = System::Drawing::Point(35, 35);
+			this->textBoxNom->Name = L"textBoxNom";
+			this->textBoxNom->Size = System::Drawing::Size(242, 22);
+			this->textBoxNom->TabIndex = 6;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(35, 285);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(153, 21);
+			this->label7->TabIndex = 5;
+			this->label7->Text = L"Adresse de Livraison";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(35, 230);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(167, 21);
+			this->label6->TabIndex = 4;
+			this->label6->Text = L"Adresse de Facturation";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(35, 175);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(217, 21);
+			this->label5->TabIndex = 3;
+			this->label5->Text = L"Date 1er Achat (AAAA-MM-JJ)";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(35, 120);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(244, 21);
+			this->label4->TabIndex = 2;
+			this->label4->Text = L"Date De Naissance (AAAA-MM-JJ)";
+			this->label4->Click += gcnew System::EventHandler(this, &ClientForm::label4_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(35, 65);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(65, 21);
+			this->label3->TabIndex = 1;
+			this->label3->Text = L"Prénom";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(35, 10);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(45, 21);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Nom";
 			// 
 			// ClientForm
 			// 
@@ -310,7 +475,7 @@ namespace POOProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)));
-			this->ClientSize = System::Drawing::Size(758, 507);
+			this->ClientSize = System::Drawing::Size(758, 529);
 			this->Controls->Add(this->panel1);
 			this->Name = L"ClientForm";
 			this->Text = L"ClientForm";
@@ -319,12 +484,20 @@ namespace POOProject {
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel2->ResumeLayout(false);
+			this->panel5->ResumeLayout(false);
+			this->panel5->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenChildForm(gcnew DataViewer(login, "CLIENT"), sender);
+	}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		login->c_getvalue(textBoxNom->Text, textBoxPrenom->Text, textBoxAnniv->Text, textBoxAchat->Text, textBoxAdressF->Text, textBoxAdressL->Text);
+		login->createClient();
 	}
 };
 }

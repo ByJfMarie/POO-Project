@@ -443,7 +443,7 @@ namespace POOProject {
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		//OpenChildForm(gcnew POOProject::DataViewer(log, "PERSONNEL"), sender);
+		OpenChildForm(gcnew StatForm(), sender);
 	}	
 	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

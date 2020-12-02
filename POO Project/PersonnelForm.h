@@ -51,11 +51,17 @@ namespace POOProject {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBoxSupID;
+
+	private: System::Windows::Forms::TextBox^ textBoxDate;
+
+	private: System::Windows::Forms::TextBox^ textBoxAdresse;
+
+	private: System::Windows::Forms::TextBox^ textBoxPrenom;
+
+	private: System::Windows::Forms::TextBox^ textBoxNom;
+
+
 	public:Form^ activeForm;
 		void OpenChildForm(Form^ childForm, Object^ sender) {
 			if (this->activeForm != nullptr)
@@ -107,11 +113,11 @@ namespace POOProject {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxSupID = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxDate = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxAdresse = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxPrenom = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxNom = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -160,11 +166,11 @@ namespace POOProject {
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::White;
-			this->panel3->Controls->Add(this->textBox5);
-			this->panel3->Controls->Add(this->textBox4);
-			this->panel3->Controls->Add(this->textBox3);
-			this->panel3->Controls->Add(this->textBox2);
-			this->panel3->Controls->Add(this->textBox1);
+			this->panel3->Controls->Add(this->textBoxSupID);
+			this->panel3->Controls->Add(this->textBoxDate);
+			this->panel3->Controls->Add(this->textBoxAdresse);
+			this->panel3->Controls->Add(this->textBoxPrenom);
+			this->panel3->Controls->Add(this->textBoxNom);
 			this->panel3->Controls->Add(this->label6);
 			this->panel3->Controls->Add(this->label5);
 			this->panel3->Controls->Add(this->label4);
@@ -176,45 +182,45 @@ namespace POOProject {
 			this->panel3->TabIndex = 8;
 			this->panel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &PersonnelForm::panel3_Paint);
 			// 
-			// textBox5
+			// textBoxSupID
 			// 
-			this->textBox5->Location = System::Drawing::Point(35, 275);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(242, 20);
-			this->textBox5->TabIndex = 9;
-			this->textBox5->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox5_TextChanged);
+			this->textBoxSupID->Location = System::Drawing::Point(35, 275);
+			this->textBoxSupID->Name = L"textBoxSupID";
+			this->textBoxSupID->Size = System::Drawing::Size(242, 20);
+			this->textBoxSupID->TabIndex = 9;
+			this->textBoxSupID->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox5_TextChanged);
 			// 
-			// textBox4
+			// textBoxDate
 			// 
-			this->textBox4->Location = System::Drawing::Point(35, 215);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(242, 20);
-			this->textBox4->TabIndex = 8;
-			this->textBox4->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox4_TextChanged);
+			this->textBoxDate->Location = System::Drawing::Point(35, 215);
+			this->textBoxDate->Name = L"textBoxDate";
+			this->textBoxDate->Size = System::Drawing::Size(242, 20);
+			this->textBoxDate->TabIndex = 8;
+			this->textBoxDate->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox4_TextChanged);
 			// 
-			// textBox3
+			// textBoxAdresse
 			// 
-			this->textBox3->Location = System::Drawing::Point(35, 155);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(242, 20);
-			this->textBox3->TabIndex = 7;
-			this->textBox3->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox3_TextChanged);
+			this->textBoxAdresse->Location = System::Drawing::Point(35, 155);
+			this->textBoxAdresse->Name = L"textBoxAdresse";
+			this->textBoxAdresse->Size = System::Drawing::Size(242, 20);
+			this->textBoxAdresse->TabIndex = 7;
+			this->textBoxAdresse->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox3_TextChanged);
 			// 
-			// textBox2
+			// textBoxPrenom
 			// 
-			this->textBox2->Location = System::Drawing::Point(35, 95);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(242, 20);
-			this->textBox2->TabIndex = 6;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox2_TextChanged);
+			this->textBoxPrenom->Location = System::Drawing::Point(35, 95);
+			this->textBoxPrenom->Name = L"textBoxPrenom";
+			this->textBoxPrenom->Size = System::Drawing::Size(242, 20);
+			this->textBoxPrenom->TabIndex = 6;
+			this->textBoxPrenom->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox2_TextChanged);
 			// 
-			// textBox1
+			// textBoxNom
 			// 
-			this->textBox1->Location = System::Drawing::Point(35, 35);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(242, 20);
-			this->textBox1->TabIndex = 5;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox1_TextChanged);
+			this->textBoxNom->Location = System::Drawing::Point(35, 35);
+			this->textBoxNom->Name = L"textBoxNom";
+			this->textBoxNom->Size = System::Drawing::Size(242, 20);
+			this->textBoxNom->TabIndex = 5;
+			this->textBoxNom->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox1_TextChanged);
 			// 
 			// label6
 			// 
@@ -462,6 +468,7 @@ namespace POOProject {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		login->p_getvalue(textBoxNom->Text, textBoxPrenom->Text, textBoxAdresse->Text, textBoxDate->Text, textBoxSupID->Text);
 		OpenChildForm(gcnew DataViewer(login, "PERSONNEL"), sender);
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {

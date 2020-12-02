@@ -29,6 +29,9 @@ namespace POOProject {
 			//TODO: Add the constructor code here
 			//
 		}
+	protected: Login^ login;
+	protected: String^ table;
+
 	public:Form^ activeForm;
 		  void OpenChildForm(Form^childForm, Object^ sender) {
 			  if (this->activeForm != nullptr)
@@ -57,8 +60,7 @@ namespace POOProject {
 
 	public:
 
-	protected: Login^ login;
-	protected: String^ table;
+	
 
 	protected:
 		/// <summary>
@@ -86,13 +88,27 @@ namespace POOProject {
 		MessageBox::Show("Slt");*/
 		String^ constr = "Server=51.75.246.94;Uid=byjfmarie;Pwd=heydkdch;Database=Projet POO";
 		MySqlConnection^ con = gcnew MySqlConnection(constr);
-		MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from "+this->table, con);
-		DataTable^ dt = gcnew DataTable();
-		sda->Fill(dt);
-		bindingSource1->DataSource = dt;
-		dataGridView1->DataSource = bindingSource1;
+		if (this->table == "CLIENT")
+		{
+			MySqlDataAdapter^ sda= gcnew MySqlDataAdapter("SELECT NOM_CLIENT as Nom, PRENOM_CLIENT as Prenom, tmp.DATE as 1erLivraison, tmp2.DATE as Anniversaire,tmp3.ADRESSE as AdresseLivraison, tmp4.ADRESSE as AdresseFacturation FROM CLIENT, DATE as tmp, DATE as tmp2, ADRESSE as tmp3, ADRESSE as tmp4 WHERE tmp.ID_DATE=CLIENT.ID_DATE1ER AND tmp2.ID_DATE=CLIENT.ID_DATENAISSANCE AND tmp3.ID_ADRESSE=CLIENT.ID_ADRESSELIVRAISON AND tmp4.ID_ADRESSE=CLIENT.ID_ADRESSEFACTURATION ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
+		else
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from " + this->table, con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
+		
 		
 	}
+
+		  
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -183,6 +199,7 @@ namespace POOProject {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &DataViewer::pictureBox1_Click);
 			// 
 			// button1
 			// 
@@ -219,6 +236,9 @@ namespace POOProject {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
+	}
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show(login->p_nom + " | " + login->p_prenom + " | " + login->p_adresse + " | " + login->p_date + " | " + login->sup_id);
 	}
 };
 }
