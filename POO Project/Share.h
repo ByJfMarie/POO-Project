@@ -22,15 +22,23 @@ namespace ShareFonctionality {
 		void p_getvalue(String^, String^, String^, String^, String^);
 		void c_getvalue(String^, String^, String^, String^, String^, String^);
 		void a_getvalue(String^, String^, String^, String^, String^, String^);
+		void cmd_getvalue(String^, String^, String^, String^, String^, String^, String^, String^);
+		void cmd_a_getvalue(String^, String^, String^, String^);
 		//void s_getvalue();
 		//void cmd_getvalue();
 		void createClient();
 		void deleteClient(String^ );
+
 		void createPersonel();
 		void deletePersonel(String^);
+
 		void createArticle();
 		void deleteArticle(String^);
 		void createLot(String^,String^,String^,String^);
+
+		void createCommande();
+		void createCmdArticle();
+
 
 	public:
 		MySqlConnection^ con;
@@ -63,6 +71,21 @@ namespace ShareFonctionality {
 		String^ a_natureID;
 		String^ a_tvaID;
 
+		// Commande Value
+		String^ cmd_idclient;
+		String^ cmd_reference;
+		String^ cmd_moyenpmt;
+		String^ cmd_datepmt;
+		String^ cmd_montantpmt;
+		String^ cmd_dates;
+		String^ cmd_datee;
+		String^ cmd_datel;
+
+		// Commande Article Value
+		String^ cmd_a_idcmd;
+		String^ cmd_a_ida;
+		String^ cmd_a_quantité;
+		String^ cmd_a_TVA;
 		
 
 	public:Form^ returnForm;

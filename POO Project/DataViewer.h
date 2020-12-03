@@ -122,6 +122,14 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
+		else if (this->table == "CARTICLE")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ID_COMMANDE, NOM_ARTICLE,QUANTITE_COMMADEE FROM CONTIENT LEFT JOIN ARTICLE ON CONTIENT.ID_ARTICLE=ARTICLE.ID_ARTICLE  WHERE ID_COMMANDE='" + login->cmd_a_idcmd + "' ORDER BY CONTIENT.ID_COMMANDE ASC ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
 		else if (this->table == "REQUETE3")
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT NOM_ARTICLE from ARTICLE WHERE QUANTITE_STOCK_ARTICLE<SEUIL_REAPPROVISIONEMENT_ARTICLE ", con);

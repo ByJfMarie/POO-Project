@@ -45,7 +45,8 @@ namespace POOProject {
 	private: System::Windows::Forms::Button^ buttonREQUETE3;
 
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ buttonREQUETE1;
+
 	private: System::Windows::Forms::Panel^ panel2;
 	protected: Login^ login;
 	protected:
@@ -121,7 +122,7 @@ namespace POOProject {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->buttonREQUETE3 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->buttonREQUETE1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->panelTop->SuspendLayout();
@@ -139,7 +140,7 @@ namespace POOProject {
 			this->panel1->Controls->Add(this->button5);
 			this->panel1->Controls->Add(this->buttonREQUETE3);
 			this->panel1->Controls->Add(this->button3);
-			this->panel1->Controls->Add(this->button2);
+			this->panel1->Controls->Add(this->buttonREQUETE1);
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
@@ -279,14 +280,15 @@ namespace POOProject {
 			this->button3->Text = L"button3";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// buttonREQUETE1
 			// 
-			this->button2->Location = System::Drawing::Point(72, 146);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(127, 38);
-			this->button2->TabIndex = 15;
-			this->button2->Text = L"button2";
-			this->button2->UseVisualStyleBackColor = true;
+			this->buttonREQUETE1->Location = System::Drawing::Point(72, 146);
+			this->buttonREQUETE1->Name = L"buttonREQUETE1";
+			this->buttonREQUETE1->Size = System::Drawing::Size(127, 38);
+			this->buttonREQUETE1->TabIndex = 15;
+			this->buttonREQUETE1->Text = L"button";
+			this->buttonREQUETE1->UseVisualStyleBackColor = true;
+			this->buttonREQUETE1->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE1_Click);
 			// 
 			// panel2
 			// 
@@ -316,6 +318,30 @@ namespace POOProject {
 		}
 #pragma endregion
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	 
+	private: System::Void buttonREQUETE1_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=Projet POO";
+			login->con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT AVG(PRIX_TTC_COMMANDE) FROM COMMANDE", login->con);
+			MySqlDataReader^ dr;
+			login->con->Open();
+			dr = cmd->ExecuteReader();
+			dr->Read();
+			String^ result = dr->GetString(0);
+
+			login->con->Close();
+
+			MessageBox::Show("                  " + result + " €", "Valeur Moyenne d'une Commande");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
 	}
 
 	private: System::Void buttonREQUETE3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -348,5 +374,6 @@ namespace POOProject {
 		ParametreForm^ setingForm = gcnew ParametreForm(login);
 		setingForm->ShowDialog();
 	}
+
 };
 }

@@ -60,6 +60,9 @@
     <ClCompile Include="ParametreForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="CreateCommandeForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -102,6 +105,9 @@
       <Filter>Forms</Filter>
     </ClInclude>
     <ClInclude Include="ParametreForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateCommandeForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>

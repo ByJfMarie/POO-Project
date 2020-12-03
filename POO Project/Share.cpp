@@ -52,6 +52,24 @@ namespace ShareFonctionality {
 		a_seuil = seuil;
 	}
 
+	void Login::cmd_getvalue(String^ idcl, String^ ref, String^ moy, String^ datep, String^ montant, String^ dates, String^ datee, String^ datel) {
+		cmd_idclient = idcl;
+		cmd_reference = ref;
+		cmd_moyenpmt = moy;
+		cmd_datepmt = datep;
+		cmd_montantpmt = montant;
+		cmd_dates = dates;
+		cmd_datee = datee;
+		cmd_datel = datel;
+	}
+
+	void Login::cmd_a_getvalue(String^ idcmd, String^ idart, String^ quantité, String^ tva) {
+		cmd_a_idcmd = idcmd;
+		cmd_a_ida = idart;
+		cmd_a_quantité = quantité;
+		cmd_a_TVA = tva;
+	}
+
 	/*Form^ Login::getreturnForm() {
 		Object^ sender;
 		return returnForm;
@@ -267,6 +285,48 @@ namespace ShareFonctionality {
 			con->Close();
 
 			MessageBox::Show("Lot Ajouté");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::createCommande() {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("call create_cmd('"+cmd_datel+"','"+cmd_datee+"','"+cmd_dates+"','"+cmd_datepmt+"','"+cmd_moyenpmt+"','"+cmd_montantpmt+"','"+cmd_idclient+"','"+cmd_reference+"')", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+			MessageBox::Show("Commande Crée");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::createCmdArticle() {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("call stockA_C('"+cmd_a_idcmd+"','"+cmd_a_ida+"','"+cmd_a_quantité+"','"+cmd_a_TVA+"');", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+			MessageBox::Show("Article Ajouté");
 
 		}
 		catch (Exception^ ex)
