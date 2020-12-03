@@ -36,6 +36,8 @@ namespace ShareFonctionality {
 		MySqlConnection^ con;
 		String^  id;
 		String^  mdp;
+		String^ ip = "51.75.246.94";
+		String^ Database = "POO Project";
 
 	public:
 		//Personel value

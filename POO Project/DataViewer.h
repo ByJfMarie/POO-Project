@@ -122,6 +122,14 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
+		else if (this->table == "REQUETE3")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT NOM_ARTICLE from ARTICLE WHERE QUANTITE_STOCK_ARTICLE<SEUIL_REAPPROVISIONEMENT_ARTICLE ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
 		else
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from " + this->table, con);
@@ -265,7 +273,6 @@ namespace POOProject {
 		this->Close();
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show(login->p_nom + " | " + login->p_prenom + " | " + login->p_adresse + " | " + login->p_date + " | " + login->sup_id);
 	}
 };
 }

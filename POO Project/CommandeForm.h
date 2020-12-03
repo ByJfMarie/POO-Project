@@ -1,6 +1,7 @@
 #pragma once
 #include "Share.h"
 #include "DataViewer.h"
+#include "ParametreForm.h"
 
 namespace POOProject {
 
@@ -160,6 +161,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &CommandeForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -326,6 +328,10 @@ namespace POOProject {
 #pragma endregion
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenChildForm(gcnew DataViewer(login, "COMMANDE"), sender);
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(login);
+		setingForm->ShowDialog();
 	}
 };
 }

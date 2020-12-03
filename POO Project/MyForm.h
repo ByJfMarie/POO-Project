@@ -8,6 +8,7 @@
 #include "StockForm.h"
 #include "CommandeForm.h"
 #include "DataViewer.h"
+#include "ParametreForm.h"
 #include "Share.h"
 
 namespace POOProject {
@@ -348,6 +349,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 3;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -444,9 +446,13 @@ namespace POOProject {
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		panelTop->Visible = false;
-		OpenChildForm(gcnew StatForm(), sender);
+		OpenChildForm(gcnew StatForm(log), sender);
 	}	
 	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(log);
+		setingForm->ShowDialog();
 	}
 };
 }

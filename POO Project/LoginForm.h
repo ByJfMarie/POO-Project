@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Share.h"
+#include "ParametreForm.h"
 
 namespace POOProject {
 
@@ -130,6 +131,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &LoginForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -285,6 +287,10 @@ namespace POOProject {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		MessageBox::Show("Rentrez vos indentifiants de connexion à la base de donnée founit", "Aide");
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(login);
+		setingForm->ShowDialog();
 	}
 };
 }

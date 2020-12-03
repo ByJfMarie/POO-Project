@@ -2,6 +2,7 @@
 #include "Share.h"
 #include "DataViewer.h"
 #include "PersonelModificateForm.h"
+#include "ParametreForm.h"
 
 
 namespace POOProject {
@@ -192,7 +193,7 @@ namespace POOProject {
 			// 
 			this->textBoxPersoSupr->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxPersoSupr->Location = System::Drawing::Point(30, 210);
+			this->textBoxPersoSupr->Location = System::Drawing::Point(30, 244);
 			this->textBoxPersoSupr->Name = L"textBoxPersoSupr";
 			this->textBoxPersoSupr->Size = System::Drawing::Size(257, 25);
 			this->textBoxPersoSupr->TabIndex = 11;
@@ -203,11 +204,11 @@ namespace POOProject {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(30, 180);
+			this->label11->Location = System::Drawing::Point(30, 214);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(150, 21);
+			this->label11->Size = System::Drawing::Size(178, 21);
 			this->label11->TabIndex = 10;
-			this->label11->Text = L"ID Client à Suprimer";
+			this->label11->Text = L"ID Personnel à Suprimer";
 			this->label11->Click += gcnew System::EventHandler(this, &PersonnelForm::label11_Click);
 			// 
 			// label10
@@ -217,7 +218,7 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->label10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label10.Image")));
 			this->label10->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->label10->Location = System::Drawing::Point(95, 140);
+			this->label10->Location = System::Drawing::Point(95, 174);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(115, 21);
 			this->label10->TabIndex = 9;
@@ -229,7 +230,7 @@ namespace POOProject {
 			// 
 			this->textBoxIDClient->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxIDClient->Location = System::Drawing::Point(30, 80);
+			this->textBoxIDClient->Location = System::Drawing::Point(30, 114);
 			this->textBoxIDClient->Name = L"textBoxIDClient";
 			this->textBoxIDClient->Size = System::Drawing::Size(257, 25);
 			this->textBoxIDClient->TabIndex = 8;
@@ -240,11 +241,11 @@ namespace POOProject {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(30, 50);
+			this->label9->Location = System::Drawing::Point(30, 84);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(144, 21);
+			this->label9->Size = System::Drawing::Size(172, 21);
 			this->label9->TabIndex = 7;
-			this->label9->Text = L"ID Client à Modifier";
+			this->label9->Text = L"ID Personnel à Modifier";
 			this->label9->Click += gcnew System::EventHandler(this, &PersonnelForm::label9_Click);
 			// 
 			// label8
@@ -254,7 +255,7 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->label8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label8.Image")));
 			this->label8->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->label8->Location = System::Drawing::Point(95, 10);
+			this->label8->Location = System::Drawing::Point(95, 44);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(125, 21);
 			this->label8->TabIndex = 6;
@@ -504,6 +505,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &PersonnelForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -619,6 +621,10 @@ private: System::Void textBoxClientSupr_TextChanged(System::Object^ sender, Syst
 }
 	private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		OpenChildForm(gcnew PersonelModificateForm(textBoxIDClient->Text, login), sender, panelModif);
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(login);
+		setingForm->ShowDialog();
 	}
 };
 }

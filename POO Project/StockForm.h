@@ -4,6 +4,7 @@
 #include "DataViewer.h"
 #include "ArticleModificateForm.h"
 #include "CreateLotForm.h"
+#include "ParametreForm.h"
 
 namespace POOProject {
 
@@ -225,6 +226,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &StockForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -402,7 +404,7 @@ namespace POOProject {
 			this->button6->Padding = System::Windows::Forms::Padding(15, 0, 0, 0);
 			this->button6->Size = System::Drawing::Size(158, 45);
 			this->button6->TabIndex = 18;
-			this->button6->Text = L"  Crée Lot";
+			this->button6->Text = L"  Créer Lot";
 			this->button6->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &StockForm::button6_Click);
@@ -423,9 +425,9 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->label11->Location = System::Drawing::Point(30, 220);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(150, 21);
+			this->label11->Size = System::Drawing::Size(154, 21);
 			this->label11->TabIndex = 16;
-			this->label11->Text = L"ID Client à Suprimer";
+			this->label11->Text = L"ID Article à Suprimer";
 			// 
 			// label10
 			// 
@@ -457,9 +459,9 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->label9->Location = System::Drawing::Point(30, 90);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(144, 21);
+			this->label9->Size = System::Drawing::Size(148, 21);
 			this->label9->TabIndex = 13;
-			this->label9->Text = L"ID Client à Modifier";
+			this->label9->Text = L"ID Article à Modifier";
 			// 
 			// label8
 			// 
@@ -656,6 +658,10 @@ namespace POOProject {
 	}
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenChildForm(gcnew CreateLotForm(login), sender, panelCreation);
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(login);
+		setingForm->ShowDialog();
 	}
 };
 }

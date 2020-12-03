@@ -57,6 +57,9 @@
     <ClCompile Include="CreateLotForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="ParametreForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -96,6 +99,9 @@
       <Filter>Forms</Filter>
     </ClInclude>
     <ClInclude Include="CreateLotForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="ParametreForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,7 @@
 #include "Share.h"
 #include "DataViewer.h"
 #include "ClientModificateForm.h"
+#include "ParametreForm.h"
 
 namespace POOProject {
 
@@ -144,6 +145,9 @@ namespace POOProject {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panelClientModicate = (gcnew System::Windows::Forms::Panel());
+			this->textBoxClientSupr = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->textBoxIDClient = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -160,9 +164,6 @@ namespace POOProject {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->textBoxClientSupr = (gcnew System::Windows::Forms::TextBox());
 			this->panel1->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -181,7 +182,7 @@ namespace POOProject {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(758, 529);
+			this->panel1->Size = System::Drawing::Size(758, 549);
 			this->panel1->TabIndex = 0;
 			// 
 			// panelTop
@@ -208,6 +209,7 @@ namespace POOProject {
 			this->button9->Size = System::Drawing::Size(50, 50);
 			this->button9->TabIndex = 4;
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &ClientForm::button9_Click);
 			// 
 			// label1
 			// 
@@ -354,11 +356,45 @@ namespace POOProject {
 			this->panelClientModicate->Size = System::Drawing::Size(315, 385);
 			this->panelClientModicate->TabIndex = 11;
 			// 
+			// textBoxClientSupr
+			// 
+			this->textBoxClientSupr->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBoxClientSupr->Location = System::Drawing::Point(33, 273);
+			this->textBoxClientSupr->Name = L"textBoxClientSupr";
+			this->textBoxClientSupr->Size = System::Drawing::Size(257, 25);
+			this->textBoxClientSupr->TabIndex = 5;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->Location = System::Drawing::Point(33, 243);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(150, 21);
+			this->label11->TabIndex = 4;
+			this->label11->Text = L"ID Client à Suprimer";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label10.Image")));
+			this->label10->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->label10->Location = System::Drawing::Point(98, 203);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(115, 21);
+			this->label10->TabIndex = 3;
+			this->label10->Text = L"       Supression";
+			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// textBoxIDClient
 			// 
 			this->textBoxIDClient->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxIDClient->Location = System::Drawing::Point(25, 80);
+			this->textBoxIDClient->Location = System::Drawing::Point(33, 143);
 			this->textBoxIDClient->Name = L"textBoxIDClient";
 			this->textBoxIDClient->Size = System::Drawing::Size(257, 25);
 			this->textBoxIDClient->TabIndex = 2;
@@ -368,7 +404,7 @@ namespace POOProject {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(25, 50);
+			this->label9->Location = System::Drawing::Point(33, 113);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(144, 21);
 			this->label9->TabIndex = 1;
@@ -381,7 +417,7 @@ namespace POOProject {
 				static_cast<System::Byte>(0)));
 			this->label8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label8.Image")));
 			this->label8->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->label8->Location = System::Drawing::Point(90, 10);
+			this->label8->Location = System::Drawing::Point(98, 73);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(125, 21);
 			this->label8->TabIndex = 0;
@@ -529,47 +565,13 @@ namespace POOProject {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Nom";
 			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label10.Image")));
-			this->label10->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->label10->Location = System::Drawing::Point(90, 140);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(115, 21);
-			this->label10->TabIndex = 3;
-			this->label10->Text = L"       Supression";
-			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(25, 180);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(150, 21);
-			this->label11->TabIndex = 4;
-			this->label11->Text = L"ID Client à Suprimer";
-			// 
-			// textBoxClientSupr
-			// 
-			this->textBoxClientSupr->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBoxClientSupr->Location = System::Drawing::Point(25, 210);
-			this->textBoxClientSupr->Name = L"textBoxClientSupr";
-			this->textBoxClientSupr->Size = System::Drawing::Size(257, 25);
-			this->textBoxClientSupr->TabIndex = 5;
-			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)));
-			this->ClientSize = System::Drawing::Size(758, 529);
+			this->ClientSize = System::Drawing::Size(758, 549);
 			this->Controls->Add(this->panel1);
 			this->Name = L"ClientForm";
 			this->Text = L"ClientForm";
@@ -600,6 +602,10 @@ private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		login->deleteClient(textBoxClientSupr->Text);
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		ParametreForm^ setingForm = gcnew ParametreForm(login);
+		setingForm->ShowDialog();
 	}
 };
 }
