@@ -43,6 +43,15 @@ namespace ShareFonctionality {
 		c_adresse_f = adressL;
 	}
 
+	void Login::a_getvalue(String^ nom, String^ idtype,String^ idtva, String^ prix, String^ quantité, String^ seuil) {
+		a_nom = nom;
+		a_natureID = idtype;
+		a_tvaID = idtva;
+		a_prix = prix;
+		a_squantité = quantité;
+		a_seuil = seuil;
+	}
+
 	/*Form^ Login::getreturnForm() {
 		Object^ sender;
 		return returnForm;
@@ -190,6 +199,75 @@ namespace ShareFonctionality {
 
 
 			MessageBox::Show("Personnel Supprimé");
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::createArticle() {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ARTICLE VALUES('',(SELECT ID_TVA FROM TVA WHERE TAUX_TVA='" + a_tvaID + "'),(SELECT ID_NATURE FROM NATURE WHERE ID_NATURE='" + a_natureID + "'),'" + a_nom + "','" + a_squantité + "','" + a_seuil + "','" + a_prix + "')", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+			MessageBox::Show("Articlé Ajouté");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::deleteArticle(String^ ida) {
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM ARTICLE WHERE ID_ARTICLE='" + ida + "'", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+
+			MessageBox::Show("Article Supprimé");
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::createLot(String^ l_idarticle, String^ l_couleur, String^ l_taile, String^ l_prix) {
+
+		try
+		{
+			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO COULEUR(ID_COULEUR,NOM_COULEUR) SELECT '','" + l_couleur + "' WHERE NOT EXISTS( SELECT* FROM COULEUR WHERE NOM_COULEUR='" + l_couleur + "')", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+			MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO TARIF (ID_TARIF,ID_ARTICLE,ID_COULEUR,PRIX_TARIF,TAILLE_LOTS_TARIF) SELECT'',ARTICLE.ID_ARTICLE,COULEUR.ID_COULEUR,'" + l_prix + "','" + l_taile + "' FROM ARTICLE,COULEUR WHERE ARTICLE.ID_ARTICLE='" + l_idarticle + "' AND COULEUR.NOM_COULEUR='" + l_couleur + "' AND NOT EXISTS(SELECT* FROM TARIF, ARTICLE, COULEUR  WHERE ARTICLE.ID_ARTICLE='" + l_idarticle+"' AND COULEUR.NOM_COULEUR='" + l_couleur + "' AND PRIX_TARIF='" + l_prix + "' AND TAILLE_LOTS_TARIF='" + l_taile + "')", con);
+			con->Open();
+			dr = cmd1->ExecuteReader();
+			con->Close();
+
+			MessageBox::Show("Lot Ajouté");
+
 		}
 		catch (Exception^ ex)
 		{

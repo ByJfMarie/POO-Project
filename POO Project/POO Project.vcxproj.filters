@@ -51,6 +51,12 @@
     <ClCompile Include="PersonelModificateForm.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
+    <ClCompile Include="ArticleModificateForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateLotForm.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -84,6 +90,12 @@
       <Filter>Forms</Filter>
     </ClInclude>
     <ClInclude Include="PersonelModificateForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticleModificateForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateLotForm.h">
       <Filter>Forms</Filter>
     </ClInclude>
   </ItemGroup>

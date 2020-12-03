@@ -105,6 +105,23 @@ namespace POOProject {
 			dataGridView1->DataSource = bindingSource1;
 
 		}
+		else if (this->table == "ARTICLE")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ARTICLE.ID_ARTICLE as NumArticle, NATURE.NOM_NATURE as TypeArticle, NOM_ARTICLE as Designation,QUANTITE_STOCK_ARTICLE as Stock,SEUIL_REAPPROVISIONEMENT_ARTICLE as SeuilRea, PRIX_HT_ARTICLE as PrixHT, TAUX_TVA as TVA FROM ARTICLE,TVA,NATURE WHERE TVA.ID_TVA=ARTICLE.ID_TVA AND NATURE.ID_NATURE=ARTICLE.ID_NATURE ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+
+		}
+		else if (this->table == "LOT")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ID_TARIF as NumLots, NOM_ARTICLE as NomArticle, NOM_COULEUR as Couleur, TAILLE_LOTS_TARIF as QuantitéeArticle, PRIX_TARIF as PrixDuLot FROM TARIF, ARTICLE, COULEUR WHERE ARTICLE.ID_ARTICLE=TARIF.ID_ARTICLE AND COULEUR.ID_COULEUR=TARIF.ID_COULEUR ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
 		else
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from " + this->table, con);
@@ -113,6 +130,7 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
+		
 		
 		
 	}

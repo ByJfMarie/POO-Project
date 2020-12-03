@@ -64,6 +64,9 @@ namespace POOProject {
 	private: System::Windows::Forms::TextBox^ textBoxNom;
 	private: System::Windows::Forms::TextBox^ textBoxPersoSupr;
 
+
+
+
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ textBoxIDClient;

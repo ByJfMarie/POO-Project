@@ -21,12 +21,16 @@ namespace ShareFonctionality {
 		void setreturnForm(Form^ form);
 		void p_getvalue(String^, String^, String^, String^, String^);
 		void c_getvalue(String^, String^, String^, String^, String^, String^);
+		void a_getvalue(String^, String^, String^, String^, String^, String^);
 		//void s_getvalue();
 		//void cmd_getvalue();
 		void createClient();
 		void deleteClient(String^ );
 		void createPersonel();
 		void deletePersonel(String^);
+		void createArticle();
+		void deleteArticle(String^);
+		void createLot(String^,String^,String^,String^);
 
 	public:
 		MySqlConnection^ con;
@@ -48,6 +52,16 @@ namespace ShareFonctionality {
 		String^ c_date_achat;
 		String^ c_adresse_l;
 		String^ c_adresse_f;
+
+		// Article Value
+		String^ a_nom;
+		String^ a_squantité;
+		String^ a_seuil;
+		String^ a_prix;
+		String^ a_natureID;
+		String^ a_tvaID;
+
+		
 
 	public:Form^ returnForm;
 

@@ -390,12 +390,13 @@ namespace POOProject {
 			this->Controls->Add(this->panelTop);
 			this->Controls->Add(this->panelDesktopPane);
 			this->Controls->Add(this->panel1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(975, 620);
 			this->MinimumSize = System::Drawing::Size(975, 600);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm";
+			this->Text = L"Gestion de L\'Entreprise";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
