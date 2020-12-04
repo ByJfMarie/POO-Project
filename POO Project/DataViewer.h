@@ -162,14 +162,6 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
-		else
-		{
-			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from " + this->table, con);
-			DataTable^ dt = gcnew DataTable();
-			sda->Fill(dt);
-			bindingSource1->DataSource = dt;
-			dataGridView1->DataSource = bindingSource1;
-		}
 		
 		
 		
