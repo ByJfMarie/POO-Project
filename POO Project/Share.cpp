@@ -89,18 +89,18 @@ namespace ShareFonctionality {
 			if (c_adresse_f == c_adresse_l)
 
 			{
-				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE VALUES('','" + c_adresse_f + "')", con);
+				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','"+c_adresse_f+"' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='"+c_adresse_f+"')", con);
 				MySqlDataReader^ dr;
 				con->Open();
 				dr = cmd->ExecuteReader();
 				con->Close();
 
-				MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO DATE VALUES('', '" + c_date_aniv + "')", con);
+				MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO DATE(ID_DATE,DATE) SELECT '','"+c_date_aniv+"' WHERE NOT EXISTS (SELECT * FROM DATE WHERE DATE='" + c_date_aniv + "')", con);
 				con->Open();
 				dr = cmd1->ExecuteReader();
 				con->Close();
 
-				MySqlCommand^ cmd2 = gcnew MySqlCommand("INSERT INTO DATE VALUES('', '" + c_date_achat + "')", con);
+				MySqlCommand^ cmd2 = gcnew MySqlCommand("INSERT INTO DATE(ID_DATE,DATE) SELECT '','"+c_date_achat+"' WHERE NOT EXISTS (SELECT * FROM DATE WHERE DATE='"+c_date_achat+"')", con);
 				con->Open();
 				dr = cmd2->ExecuteReader();
 				con->Close();
@@ -114,23 +114,23 @@ namespace ShareFonctionality {
 			}
 			else
 			{
-				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE VALUES('','" + c_adresse_f + "')", con);
+				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','" + c_adresse_f + "' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='" + c_adresse_f + "')", con);
 				MySqlDataReader^ dr;
 				con->Open();
 				dr = cmd->ExecuteReader();
 				con->Close();
 
-				MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO ADRESSE VALUES('','" + c_adresse_l + "')", con);
+				MySqlCommand^ cmd1 = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','" + c_adresse_l + "' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='" + c_adresse_l + "')", con);
 				con->Open();
 				dr = cmd1->ExecuteReader();
 				con->Close();
 
-				MySqlCommand^ cmd2 = gcnew MySqlCommand("INSERT INTO DATE VALUES('', '" + c_date_aniv + "')", con);
+				MySqlCommand^ cmd2 = gcnew MySqlCommand("INSERT INTO DATE(ID_DATE,DATE) SELECT '','" + c_date_aniv + "' WHERE NOT EXISTS (SELECT * FROM DATE WHERE DATE='" + c_date_aniv + "')", con);
 				con->Open();
 				dr = cmd2->ExecuteReader();
 				con->Close();
 
-				MySqlCommand^ cmd3 = gcnew MySqlCommand("INSERT INTO DATE VALUES('', '" + c_date_achat + "')", con);
+				MySqlCommand^ cmd3 = gcnew MySqlCommand("INSERT INTO DATE(ID_DATE,DATE) SELECT '','" + c_date_achat + "' WHERE NOT EXISTS (SELECT * FROM DATE WHERE DATE='" + c_date_achat + "')", con);
 				con->Open();
 				dr = cmd3->ExecuteReader();
 				con->Close();

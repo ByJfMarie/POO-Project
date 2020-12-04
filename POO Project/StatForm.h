@@ -446,7 +446,7 @@ namespace POOProject {
 			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
 			login->con = gcnew MySqlConnection(constr);
 
-			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(PRIX_TARIF*ARTICLE.QUANTITE_STOCK_ARTICLE) FROM ARTICLE INNER JOIN TARIF ON ARTICLE.ID_ARTICLE = TARIF.ID_Article", login->con);
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(ARTICLE.PRIX_HT_ARTICLE*ARTICLE.QUANTITE_STOCK_ARTICLE) FROM ARTICLE", login->con);
 			MySqlDataReader^ dr;
 			login->con->Open();
 			dr = cmd->ExecuteReader();
@@ -492,7 +492,27 @@ namespace POOProject {
 		}
 	}
 	private: System::Void buttonREQUETE4_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
+			login->con = gcnew MySqlConnection(constr);
 
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(COMMANDE.PRIX_TTC_COMMANDE) FROM COMMANDE INNER JOIN CLIENT ON COMMANDE.ID_CLIENT = CLIENT.ID_CLIENT WHERE CLIENT.ID_CLIENT = '"+textBoxREQUETE4->Text+"'", login->con);
+			MySqlDataReader^ dr;
+			login->con->Open();
+			dr = cmd->ExecuteReader();
+			dr->Read();
+			String^ result = dr->GetString(0);
+
+			login->con->Close();
+
+			MessageBox::Show(result + " €", "Montant totale d'achat du Client");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
 	}
 	private: System::Void buttonREQUETE5_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenChildForm(gcnew DataViewer(login, "REQUETE5"), sender, panel1);
@@ -506,7 +526,7 @@ namespace POOProject {
 			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
 			login->con = gcnew MySqlConnection(constr);
 
-			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(PRIX_TARIF*ARTICLE.QUANTITE_STOCK_ARTICLE *(TVA.TAUX_TVA+1)) FROM(( ARTICLE INNER JOIN TARIF ON ARTICLE.ID_ARTICLE = TARIF.ID_ARTICLE) INNER JOIN TVA ON ARTICLE.ID_TVA=TVA.ID_TVA)", login->con);
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(ARTICLE.PRIX_HT_ARTICLE*ARTICLE.QUANTITE_STOCK_ARTICLE *(TVA.TAUX_TVA+1)) FROM ARTICLE, TVA WHERE ARTICLE.ID_TVA = TVA.ID_TVA", login->con);
 			MySqlDataReader^ dr;
 			login->con->Open();
 			dr = cmd->ExecuteReader();
