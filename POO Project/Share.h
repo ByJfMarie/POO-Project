@@ -38,6 +38,7 @@ namespace ShareFonctionality {
 
 		void createCommande();
 		void createCmdArticle();
+		void deleteCommande(String^);
 
 
 	public:
@@ -45,7 +46,7 @@ namespace ShareFonctionality {
 		String^  id;
 		String^  mdp;
 		String^ ip = "51.75.246.94";
-		String^ Database = "POO Project";
+		String^ Database = "Projet POO";
 
 	public:
 		//Personel value

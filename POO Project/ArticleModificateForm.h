@@ -45,7 +45,7 @@ namespace POOProject {
 	public: void recupvalue() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 			log->con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT NOM_ARTICLE,NATURE.ID_NATURE, PRIX_HT_ARTICLE, TAUX_TVA , QUANTITE_STOCK_ARTICLE ,SEUIL_REAPPROVISIONEMENT_ARTICLE FROM ARTICLE,TVA,NATURE WHERE TVA.ID_TVA=ARTICLE.ID_TVA AND NATURE.ID_NATURE=ARTICLE.ID_NATURE AND ID_ARTICLE='"+idarticle+"'", log->con);
@@ -73,7 +73,7 @@ namespace POOProject {
 		  void update() {
 			  try
 			  {
-				  String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+				  String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 				  log->con = gcnew MySqlConnection(constr);
 
 				  MySqlCommand^ cmd = gcnew MySqlCommand("UPDATE ARTICLE SET ID_TVA=(SELECT ID_TVA FROM TVA WHERE TAUX_TVA ='" + textBoxTVA->Text + "'),ID_NATURE=(SELECT ID_NATURE FROM NATURE WHERE NATURE.ID_NATURE='" + textBoxIDType->Text + "'),NOM_ARTICLE='" + textBoxNom->Text + "',QUANTITE_STOCK_ARTICLE='" + textBoxQuantité->Text + "',SEUIL_REAPPROVISIONEMENT_ARTICLE='" + textBoxSeuil->Text + "',PRIX_HT_ARTICLE='" + textBoxprix->Text + "' WHERE ID_ARTICLE='" + idarticle + "'", log->con);

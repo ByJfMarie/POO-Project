@@ -129,6 +129,7 @@
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="ClientModificateForm.cpp" />
     <ClCompile Include="CommandeForm.cpp" />
+    <ClCompile Include="CommandeModificateForm.cpp" />
     <ClCompile Include="CreateCommandeForm.cpp" />
     <ClCompile Include="CreateLotForm.cpp" />
     <ClCompile Include="DataViewer.cpp" />
@@ -152,6 +153,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CommandeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CommandeModificateForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CreateCommandeForm.h">
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommandeForm.resx">
       <DependentUpon>CommandeForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandeModificateForm.resx">
+      <DependentUpon>CommandeModificateForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateCommandeForm.resx">
       <DependentUpon>CreateCommandeForm.h</DependentUpon>

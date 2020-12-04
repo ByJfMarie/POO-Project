@@ -67,6 +67,7 @@ namespace POOProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Button^ button8;
 	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Label^ label2;
 
 	protected:
 
@@ -120,9 +121,11 @@ namespace POOProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->panelLogo->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panelDesktopPane->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
@@ -319,6 +322,7 @@ namespace POOProject {
 			// 
 			this->panelDesktopPane->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)));
+			this->panelDesktopPane->Controls->Add(this->label2);
 			this->panelDesktopPane->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panelDesktopPane->Location = System::Drawing::Point(200, 0);
 			this->panelDesktopPane->Name = L"panelDesktopPane";
@@ -383,6 +387,17 @@ namespace POOProject {
 			this->button8->TabIndex = 0;
 			this->button8->UseVisualStyleBackColor = true;
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(131, 90);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(500, 25);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"N\'oubliez pas de vous connecter pour utiliser l\'application";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -403,6 +418,8 @@ namespace POOProject {
 			this->panel1->ResumeLayout(false);
 			this->panelLogo->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panelDesktopPane->ResumeLayout(false);
+			this->panelDesktopPane->PerformLayout();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();

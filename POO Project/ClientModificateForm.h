@@ -33,7 +33,7 @@ namespace POOProject {
 	public: void recupvalue() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 			log->con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT NOM_CLIENT , PRENOM_CLIENT , tmp.DATE , tmp2.DATE ,tmp3.ADRESSE , tmp4.ADRESSE  FROM CLIENT, DATE as tmp, DATE as tmp2, ADRESSE as tmp3, ADRESSE as tmp4 WHERE tmp.ID_DATE=CLIENT.ID_DATE1ER AND tmp2.ID_DATE=CLIENT.ID_DATENAISSANCE AND tmp3.ID_ADRESSE=CLIENT.ID_ADRESSELIVRAISON AND tmp4.ID_ADRESSE=CLIENT.ID_ADRESSEFACTURATION AND ID_CLIENT='"+idclient+"'", log->con);
@@ -62,7 +62,7 @@ namespace POOProject {
 		  void update() {
 			  try
 			  {
-				  String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+				  String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 				  log->con = gcnew MySqlConnection(constr);
 
 				  MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','"+textBoxAdressF->Text+"' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='" + textBoxAdressF->Text + "')", log->con);

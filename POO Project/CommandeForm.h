@@ -3,6 +3,7 @@
 #include "DataViewer.h"
 #include "ParametreForm.h"
 #include "CreateCommandeForm.h"
+#include "CommandeModificateForm.h"
 
 namespace POOProject {
 
@@ -45,10 +46,12 @@ namespace POOProject {
 
 	private: System::Windows::Forms::Panel^ panel5;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBoxArtSupr;
+	private: System::Windows::Forms::TextBox^ textBoxCommandeSupr;
+
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::TextBox^ textBoxIDModif;
+	private: System::Windows::Forms::TextBox^ textBoxCommandeModif;
+
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Panel^ panel4;
@@ -161,10 +164,10 @@ namespace POOProject {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBoxArtSupr = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxCommandeSupr = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->textBoxIDModif = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxCommandeModif = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
@@ -278,6 +281,7 @@ namespace POOProject {
 			this->button5->Text = L"  Supprimer";
 			this->button5->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &CommandeForm::button5_Click);
 			// 
 			// button4
 			// 
@@ -296,6 +300,7 @@ namespace POOProject {
 			this->button4->Text = L"  Modifier";
 			this->button4->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &CommandeForm::button4_Click);
 			// 
 			// button3
 			// 
@@ -498,10 +503,10 @@ namespace POOProject {
 			// 
 			this->panel5->BackColor = System::Drawing::Color::White;
 			this->panel5->Controls->Add(this->label2);
-			this->panel5->Controls->Add(this->textBoxArtSupr);
+			this->panel5->Controls->Add(this->textBoxCommandeSupr);
 			this->panel5->Controls->Add(this->label11);
 			this->panel5->Controls->Add(this->label10);
-			this->panel5->Controls->Add(this->textBoxIDModif);
+			this->panel5->Controls->Add(this->textBoxCommandeModif);
 			this->panel5->Controls->Add(this->label9);
 			this->panel5->Controls->Add(this->label8);
 			this->panel5->Location = System::Drawing::Point(50, 184);
@@ -522,14 +527,14 @@ namespace POOProject {
 			this->label2->Text = L"Commandes :";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// textBoxArtSupr
+			// textBoxCommandeSupr
 			// 
-			this->textBoxArtSupr->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBoxCommandeSupr->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxArtSupr->Location = System::Drawing::Point(29, 254);
-			this->textBoxArtSupr->Name = L"textBoxArtSupr";
-			this->textBoxArtSupr->Size = System::Drawing::Size(257, 25);
-			this->textBoxArtSupr->TabIndex = 23;
+			this->textBoxCommandeSupr->Location = System::Drawing::Point(29, 254);
+			this->textBoxCommandeSupr->Name = L"textBoxCommandeSupr";
+			this->textBoxCommandeSupr->Size = System::Drawing::Size(257, 25);
+			this->textBoxCommandeSupr->TabIndex = 23;
 			// 
 			// label11
 			// 
@@ -556,14 +561,14 @@ namespace POOProject {
 			this->label10->Text = L"       Supression";
 			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// textBoxIDModif
+			// textBoxCommandeModif
 			// 
-			this->textBoxIDModif->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBoxCommandeModif->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxIDModif->Location = System::Drawing::Point(29, 124);
-			this->textBoxIDModif->Name = L"textBoxIDModif";
-			this->textBoxIDModif->Size = System::Drawing::Size(257, 25);
-			this->textBoxIDModif->TabIndex = 20;
+			this->textBoxCommandeModif->Location = System::Drawing::Point(29, 124);
+			this->textBoxCommandeModif->Name = L"textBoxCommandeModif";
+			this->textBoxCommandeModif->Size = System::Drawing::Size(257, 25);
+			this->textBoxCommandeModif->TabIndex = 20;
 			// 
 			// label9
 			// 
@@ -643,6 +648,13 @@ namespace POOProject {
 	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 		login->cmd_a_idcmd = textBoxIDCCMD->Text;
 		OpenChildForm(gcnew DataViewer(login, "CARTICLE"), sender, panel1);
+	}
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		login->deleteCommande(textBoxCommandeSupr->Text);
+	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		CommandeModificateForm^ modifcmd = gcnew CommandeModificateForm(login, textBoxCommandeModif->Text);
+		modifcmd->ShowDialog();
 	}
 };
 }

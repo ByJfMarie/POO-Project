@@ -35,19 +35,26 @@ namespace POOProject {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button11;
-	private: System::Windows::Forms::Button^ button10;
+
+	private: System::Windows::Forms::Button^ buttonREQUETE9;
+
 	private: System::Windows::Forms::Button^ buttonREQUETE7;
 
 	private: System::Windows::Forms::Button^ button7;
-	private: System::Windows::Forms::Button^ button6;
-	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ buttonREQUETE5;
+
+
+	private: System::Windows::Forms::Button^ buttonREQUETE4;
+
 	private: System::Windows::Forms::Button^ buttonREQUETE3;
 
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ buttonREQUETE1;
 
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::TextBox^ textBoxMois;
+	private: System::Windows::Forms::TextBox^ textBoxREQUETE4;
+	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 	protected: Login^ login;
 	protected:
 		/// <summary>
@@ -109,21 +116,23 @@ namespace POOProject {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(StatForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->textBoxREQUETE4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxMois = (gcnew System::Windows::Forms::TextBox());
 			this->panelTop = (gcnew System::Windows::Forms::Panel());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button11 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->buttonREQUETE9 = (gcnew System::Windows::Forms::Button());
 			this->buttonREQUETE7 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->buttonREQUETE5 = (gcnew System::Windows::Forms::Button());
+			this->buttonREQUETE4 = (gcnew System::Windows::Forms::Button());
 			this->buttonREQUETE3 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->buttonREQUETE1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->panel1->SuspendLayout();
 			this->panelTop->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -131,13 +140,15 @@ namespace POOProject {
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->richTextBox1);
+			this->panel1->Controls->Add(this->textBoxREQUETE4);
+			this->panel1->Controls->Add(this->textBoxMois);
 			this->panel1->Controls->Add(this->panelTop);
-			this->panel1->Controls->Add(this->button11);
-			this->panel1->Controls->Add(this->button10);
+			this->panel1->Controls->Add(this->buttonREQUETE9);
 			this->panel1->Controls->Add(this->buttonREQUETE7);
 			this->panel1->Controls->Add(this->button7);
-			this->panel1->Controls->Add(this->button6);
-			this->panel1->Controls->Add(this->button5);
+			this->panel1->Controls->Add(this->buttonREQUETE5);
+			this->panel1->Controls->Add(this->buttonREQUETE4);
 			this->panel1->Controls->Add(this->buttonREQUETE3);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->buttonREQUETE1);
@@ -145,8 +156,22 @@ namespace POOProject {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(758, 507);
+			this->panel1->Size = System::Drawing::Size(758, 547);
 			this->panel1->TabIndex = 0;
+			// 
+			// textBoxREQUETE4
+			// 
+			this->textBoxREQUETE4->Location = System::Drawing::Point(72, 206);
+			this->textBoxREQUETE4->Name = L"textBoxREQUETE4";
+			this->textBoxREQUETE4->Size = System::Drawing::Size(127, 20);
+			this->textBoxREQUETE4->TabIndex = 25;
+			// 
+			// textBoxMois
+			// 
+			this->textBoxMois->Location = System::Drawing::Point(295, 110);
+			this->textBoxMois->Name = L"textBoxMois";
+			this->textBoxMois->Size = System::Drawing::Size(127, 20);
+			this->textBoxMois->TabIndex = 24;
 			// 
 			// panelTop
 			// 
@@ -206,88 +231,140 @@ namespace POOProject {
 			this->button1->TabIndex = 0;
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// button11
+			// buttonREQUETE9
 			// 
-			this->button11->Location = System::Drawing::Point(524, 330);
-			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(127, 38);
-			this->button11->TabIndex = 23;
-			this->button11->Text = L"button11";
-			this->button11->UseVisualStyleBackColor = true;
-			// 
-			// button10
-			// 
-			this->button10->Location = System::Drawing::Point(295, 330);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(127, 38);
-			this->button10->TabIndex = 22;
-			this->button10->Text = L"button10";
-			this->button10->UseVisualStyleBackColor = true;
+			this->buttonREQUETE9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE9->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE9->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE9->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE9->Location = System::Drawing::Point(295, 320);
+			this->buttonREQUETE9->Name = L"buttonREQUETE9";
+			this->buttonREQUETE9->Size = System::Drawing::Size(127, 38);
+			this->buttonREQUETE9->TabIndex = 22;
+			this->buttonREQUETE9->Text = L"REQUETE 8";
+			this->buttonREQUETE9->UseVisualStyleBackColor = false;
+			this->buttonREQUETE9->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE9_Click);
 			// 
 			// buttonREQUETE7
 			// 
-			this->buttonREQUETE7->Location = System::Drawing::Point(72, 330);
+			this->buttonREQUETE7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE7->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE7->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE7->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE7->Location = System::Drawing::Point(72, 320);
 			this->buttonREQUETE7->Name = L"buttonREQUETE7";
 			this->buttonREQUETE7->Size = System::Drawing::Size(127, 38);
 			this->buttonREQUETE7->TabIndex = 21;
-			this->buttonREQUETE7->Text = L"button8";
-			this->buttonREQUETE7->UseVisualStyleBackColor = true;
+			this->buttonREQUETE7->Text = L"REQUETE 7";
+			this->buttonREQUETE7->UseVisualStyleBackColor = false;
 			this->buttonREQUETE7->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE7_Click);
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(524, 242);
+			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->button7->FlatAppearance->BorderSize = 0;
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->ForeColor = System::Drawing::Color::White;
+			this->button7->Location = System::Drawing::Point(524, 232);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(127, 38);
 			this->button7->TabIndex = 20;
-			this->button7->Text = L"button7";
-			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Text = L"REQUETE 6";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &StatForm::button7_Click);
 			// 
-			// button6
+			// buttonREQUETE5
 			// 
-			this->button6->Location = System::Drawing::Point(295, 242);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(127, 38);
-			this->button6->TabIndex = 19;
-			this->button6->Text = L"button6";
-			this->button6->UseVisualStyleBackColor = true;
+			this->buttonREQUETE5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE5->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE5->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE5->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE5->Location = System::Drawing::Point(295, 232);
+			this->buttonREQUETE5->Name = L"buttonREQUETE5";
+			this->buttonREQUETE5->Size = System::Drawing::Size(127, 38);
+			this->buttonREQUETE5->TabIndex = 19;
+			this->buttonREQUETE5->Text = L"REQUETE 5";
+			this->buttonREQUETE5->UseVisualStyleBackColor = false;
+			this->buttonREQUETE5->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE5_Click);
 			// 
-			// button5
+			// buttonREQUETE4
 			// 
-			this->button5->Location = System::Drawing::Point(72, 242);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(127, 38);
-			this->button5->TabIndex = 18;
-			this->button5->Text = L"button5";
-			this->button5->UseVisualStyleBackColor = true;
+			this->buttonREQUETE4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE4->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE4->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE4->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE4->Location = System::Drawing::Point(72, 232);
+			this->buttonREQUETE4->Name = L"buttonREQUETE4";
+			this->buttonREQUETE4->Size = System::Drawing::Size(127, 38);
+			this->buttonREQUETE4->TabIndex = 18;
+			this->buttonREQUETE4->Text = L"REQUETE 4";
+			this->buttonREQUETE4->UseVisualStyleBackColor = false;
+			this->buttonREQUETE4->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE4_Click);
 			// 
 			// buttonREQUETE3
 			// 
-			this->buttonREQUETE3->Location = System::Drawing::Point(524, 146);
+			this->buttonREQUETE3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE3->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE3->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE3->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE3->Location = System::Drawing::Point(524, 136);
 			this->buttonREQUETE3->Name = L"buttonREQUETE3";
 			this->buttonREQUETE3->Size = System::Drawing::Size(127, 38);
 			this->buttonREQUETE3->TabIndex = 17;
-			this->buttonREQUETE3->Text = L"button4";
-			this->buttonREQUETE3->UseVisualStyleBackColor = true;
+			this->buttonREQUETE3->Text = L"REQUETE 3";
+			this->buttonREQUETE3->UseVisualStyleBackColor = false;
 			this->buttonREQUETE3->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE3_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(295, 146);
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::Color::White;
+			this->button3->Location = System::Drawing::Point(295, 136);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(127, 38);
 			this->button3->TabIndex = 16;
-			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Text = L"REQUETE 2";
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &StatForm::button3_Click);
 			// 
 			// buttonREQUETE1
 			// 
-			this->buttonREQUETE1->Location = System::Drawing::Point(72, 146);
+			this->buttonREQUETE1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(48)), static_cast<System::Int32>(static_cast<System::Byte>(49)),
+				static_cast<System::Int32>(static_cast<System::Byte>(54)));
+			this->buttonREQUETE1->FlatAppearance->BorderSize = 0;
+			this->buttonREQUETE1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonREQUETE1->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buttonREQUETE1->ForeColor = System::Drawing::Color::White;
+			this->buttonREQUETE1->Location = System::Drawing::Point(72, 136);
 			this->buttonREQUETE1->Name = L"buttonREQUETE1";
 			this->buttonREQUETE1->Size = System::Drawing::Size(127, 38);
 			this->buttonREQUETE1->TabIndex = 15;
-			this->buttonREQUETE1->Text = L"button";
-			this->buttonREQUETE1->UseVisualStyleBackColor = true;
+			this->buttonREQUETE1->Text = L"REQUETE 1";
+			this->buttonREQUETE1->UseVisualStyleBackColor = false;
 			this->buttonREQUETE1->Click += gcnew System::EventHandler(this, &StatForm::buttonREQUETE1_Click);
 			// 
 			// panel2
@@ -299,17 +376,33 @@ namespace POOProject {
 			this->panel2->Size = System::Drawing::Size(7, 50);
 			this->panel2->TabIndex = 14;
 			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
+				static_cast<System::Int32>(static_cast<System::Byte>(223)));
+			this->richTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->richTextBox1->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->richTextBox1->Location = System::Drawing::Point(0, 374);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->ReadOnly = true;
+			this->richTextBox1->Size = System::Drawing::Size(758, 173);
+			this->richTextBox1->TabIndex = 26;
+			this->richTextBox1->Text = resources->GetString(L"richTextBox1.Text");
+			// 
 			// StatForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(223)), static_cast<System::Int32>(static_cast<System::Byte>(223)),
 				static_cast<System::Int32>(static_cast<System::Byte>(223)));
-			this->ClientSize = System::Drawing::Size(758, 507);
+			this->ClientSize = System::Drawing::Size(758, 547);
 			this->Controls->Add(this->panel1);
 			this->Name = L"StatForm";
 			this->Text = L"StatForm";
 			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->panelTop->ResumeLayout(false);
 			this->panelTop->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -323,7 +416,7 @@ namespace POOProject {
 	private: System::Void buttonREQUETE1_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=Projet POO";
+			String^ constr = "Server="+ login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database="+login->Database;
 			login->con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT AVG(PRIX_TTC_COMMANDE) FROM COMMANDE", login->con);
@@ -335,7 +428,7 @@ namespace POOProject {
 
 			login->con->Close();
 
-			MessageBox::Show("                  " + result + " €", "Valeur Moyenne d'une Commande");
+			MessageBox::Show(result + " €", "Valeur Moyenne d'une Commande");
 
 		}
 		catch (Exception^ ex)
@@ -350,7 +443,7 @@ namespace POOProject {
 	private: System::Void buttonREQUETE7_Click(System::Object^ sender, System::EventArgs^ e) {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
 			login->con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(PRIX_TARIF*ARTICLE.QUANTITE_STOCK_ARTICLE) FROM ARTICLE INNER JOIN TARIF ON ARTICLE.ID_ARTICLE = TARIF.ID_Article", login->con);
@@ -362,7 +455,7 @@ namespace POOProject {
 
 			login->con->Close();
 
-			MessageBox::Show("                  " + result + " €", "Valeur Commercial du Stock");
+			MessageBox::Show(result + " €", "Valeur Commercial du Stock");
 
 		}
 		catch (Exception^ ex)
@@ -375,5 +468,60 @@ namespace POOProject {
 		setingForm->ShowDialog();
 	}
 
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
+			login->con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(PRIX_TTC_COMMANDE) FROM COMMANDE INNER JOIN DATE ON COMMANDE.ID_DATEEMMISSION =DATE.ID_DATE WHERE MONTH(DATE.DATE)='"+textBoxMois->Text+"'", login->con);
+			MySqlDataReader^ dr;
+			login->con->Open();
+			dr = cmd->ExecuteReader();
+			dr->Read();
+			String^ result = dr->GetString(0);
+
+			login->con->Close();
+
+			MessageBox::Show(result + " €", "Chiffre d'Affaire sur le Mois Demandé");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+	private: System::Void buttonREQUETE4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void buttonREQUETE5_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenChildForm(gcnew DataViewer(login, "REQUETE5"), sender, panel1);
+	}
+	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenChildForm(gcnew DataViewer(login, "REQUETE6"), sender, panel1);
+	}
+	private: System::Void buttonREQUETE9_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
+			login->con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT SUM(PRIX_TARIF*ARTICLE.QUANTITE_STOCK_ARTICLE *(TVA.TAUX_TVA+1)) FROM(( ARTICLE INNER JOIN TARIF ON ARTICLE.ID_ARTICLE = TARIF.ID_ARTICLE) INNER JOIN TVA ON ARTICLE.ID_TVA=TVA.ID_TVA)", login->con);
+			MySqlDataReader^ dr;
+			login->con->Open();
+			dr = cmd->ExecuteReader();
+			dr->Read();
+			String^ result = dr->GetString(0);
+
+			login->con->Close();
+
+			MessageBox::Show(result + " €", "Valeur D'Achat du Stock");
+
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
 };
 }

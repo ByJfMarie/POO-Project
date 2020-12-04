@@ -46,7 +46,7 @@ namespace POOProject {
 	public: void recupvalue() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 			log->con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("SELECT NOM_PERSONNEL , PRENOM_PERSONNEL, DATE ,ADRESSE, ID_SUPERIEUR FROM PERSONNEL, DATE , ADRESSE WHERE PERSONNEL.ID_PERSONNEL='"+idpersonnel+"' AND DATE.ID_DATE=PERSONNEL.ID_DATEENBAUCHE AND ADRESSE.ID_ADRESSE=PERSONNEL.ID_ADRESSEP", log->con);
@@ -74,7 +74,7 @@ namespace POOProject {
 		  void update() {
 			  try
 			  {
-				  String^ constr = "Server=51.75.246.94;Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=Projet POO";
+				  String^ constr = "Server=" + log->ip + ";Uid=" + log->id + ";Pwd=" + log->mdp + ";Database=" + log->Database;
 				  log->con = gcnew MySqlConnection(constr);
 
 				  MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','" + textBoxAdresse->Text + "' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='" + textBoxAdresse->Text + "')", log->con);

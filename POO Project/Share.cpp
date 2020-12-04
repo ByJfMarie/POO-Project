@@ -16,7 +16,7 @@ namespace ShareFonctionality {
 	}
 
 	void Login::connect(Object^ data, BindingSource^ bd, Object^ dbd) {
-		String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+		String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 		con = gcnew MySqlConnection(constr);
 		MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("select * from TVA", con);
 		DataTable^ dt = gcnew DataTable();
@@ -83,7 +83,7 @@ namespace ShareFonctionality {
 	void Login::createClient() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			if (c_adresse_f == c_adresse_l)
@@ -153,7 +153,7 @@ namespace ShareFonctionality {
 	void Login::deleteClient(String^ idc) {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM CLIENT WHERE ID_CLIENT='"+idc+"'", con);
@@ -175,7 +175,7 @@ namespace ShareFonctionality {
 		
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ADRESSE(ID_ADRESSE ,ADRESSE) SELECT '','"+p_adresse+"' WHERE NOT EXISTS (SELECT * FROM ADRESSE WHERE ADRESSE='"+p_adresse+"')", con);
@@ -206,7 +206,7 @@ namespace ShareFonctionality {
 	void Login::deletePersonel(String^ idp) {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM PERSONNEL WHERE ID_PERSONNEL='" + idp + "'", con);
@@ -227,7 +227,7 @@ namespace ShareFonctionality {
 	void Login::createArticle() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO ARTICLE VALUES('',(SELECT ID_TVA FROM TVA WHERE TAUX_TVA='" + a_tvaID + "'),(SELECT ID_NATURE FROM NATURE WHERE ID_NATURE='" + a_natureID + "'),'" + a_nom + "','" + a_squantité + "','" + a_seuil + "','" + a_prix + "')", con);
@@ -248,7 +248,7 @@ namespace ShareFonctionality {
 	void Login::deleteArticle(String^ ida) {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("DELETE FROM ARTICLE WHERE ID_ARTICLE='" + ida + "'", con);
@@ -270,7 +270,7 @@ namespace ShareFonctionality {
 
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO COULEUR(ID_COULEUR,NOM_COULEUR) SELECT '','" + l_couleur + "' WHERE NOT EXISTS( SELECT* FROM COULEUR WHERE NOM_COULEUR='" + l_couleur + "')", con);
@@ -296,7 +296,7 @@ namespace ShareFonctionality {
 	void Login::createCommande() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("call create_cmd('"+cmd_datel+"','"+cmd_datee+"','"+cmd_dates+"','"+cmd_datepmt+"','"+cmd_moyenpmt+"','"+cmd_montantpmt+"','"+cmd_idclient+"','"+cmd_reference+"')", con);
@@ -317,7 +317,7 @@ namespace ShareFonctionality {
 	void Login::createCmdArticle() {
 		try
 		{
-			String^ constr = "Server=51.75.246.94;Uid=" + id + ";Pwd=" + mdp + ";Database=Projet POO";
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
 			con = gcnew MySqlConnection(constr);
 
 			MySqlCommand^ cmd = gcnew MySqlCommand("call stockA_C('"+cmd_a_idcmd+"','"+cmd_a_ida+"','"+cmd_a_quantité+"','"+cmd_a_TVA+"');", con);
@@ -328,6 +328,27 @@ namespace ShareFonctionality {
 
 			MessageBox::Show("Article Ajouté");
 
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(ex->Message);
+		}
+	}
+
+	void Login::deleteCommande(String^ idc) {
+		try
+		{
+			String^ constr = "Server=" + ip + ";Uid=" + id + ";Pwd=" + mdp + ";Database=" + Database;
+			con = gcnew MySqlConnection(constr);
+
+			MySqlCommand^ cmd = gcnew MySqlCommand("call delete_commande('"+idc+"')", con);
+			MySqlDataReader^ dr;
+			con->Open();
+			dr = cmd->ExecuteReader();
+			con->Close();
+
+
+			MessageBox::Show("Commande Supprimé");
 		}
 		catch (Exception^ ex)
 		{

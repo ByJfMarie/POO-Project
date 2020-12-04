@@ -86,7 +86,7 @@ namespace POOProject {
 		Object^ dbd = bindingSource1->DataSource;
 		login->connect(data, bd, dbd);
 		MessageBox::Show("Slt");*/
-		String^ constr = "Server=51.75.246.94;Uid=byjfmarie;Pwd=heydkdch;Database=Projet POO";
+		String^ constr = "Server=" + login->ip + ";Uid=" + login->id + ";Pwd=" + login->mdp + ";Database=" + login->Database;
 		MySqlConnection^ con = gcnew MySqlConnection(constr);
 		if (this->table == "CLIENT")
 		{
@@ -122,6 +122,14 @@ namespace POOProject {
 			bindingSource1->DataSource = dt;
 			dataGridView1->DataSource = bindingSource1;
 		}
+		else if (this->table == "COMMANDE")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ID_COMMANDE,REFERENCE_COMMANDE AS REF ,DATELIVR.DATE as LivréLe, DATEEMIS.DATE as EmisLe, DATEPAY.DATE as PayéLe,  REGLEMENT.MONTANT_REGLEMENT as Montant, DATEREGL.DATE as RégléLe,PRIX_HT_COMMANDE as PrixHT, PRIX_TVA_COMMANDE as PrixTVA, PRIX_TTC_COMMANDE as PrixTTC FROM COMMANDE LEFT JOIN DATE AS DATELIVR ON COMMANDE.ID_DATELIVRAISON=DATELIVR.ID_DATE LEFT JOIN DATE AS DATEEMIS ON COMMANDE.ID_DATEEMMISSION=DATEEMIS.ID_DATE LEFT JOIN DATE AS DATEPAY ON COMMANDE.ID_DATEDESOLDE=DATEPAY.ID_DATE LEFT JOIN REGLEMENT ON COMMANDE.ID_REGLEMENT=REGLEMENT.ID_REGLEMENT LEFT JOIN MODE_REGLEMENT ON REGLEMENT.ID_REGLEMENT=MODE_REGLEMENT.ID_MODEREGLE LEFT JOIN DATE AS DATEREGL ON REGLEMENT.ID_DATEREGLE=DATEREGL.ID_DATE", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
 		else if (this->table == "CARTICLE")
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT ID_COMMANDE, NOM_ARTICLE,QUANTITE_COMMADEE FROM CONTIENT LEFT JOIN ARTICLE ON CONTIENT.ID_ARTICLE=ARTICLE.ID_ARTICLE  WHERE ID_COMMANDE='" + login->cmd_a_idcmd + "' ORDER BY CONTIENT.ID_COMMANDE ASC ", con);
@@ -133,6 +141,22 @@ namespace POOProject {
 		else if (this->table == "REQUETE3")
 		{
 			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT NOM_ARTICLE from ARTICLE WHERE QUANTITE_STOCK_ARTICLE<SEUIL_REAPPROVISIONEMENT_ARTICLE ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
+		else if (this->table == "REQUETE5")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT NOM_ARTICLE,SUM(QUANTITE_COMMADEE) AS Quantité FROM ARTICLE INNER JOIN CONTIENT ON ARTICLE.ID_ARTICLE=CONTIENT.ID_ARTICLE GROUP BY NOM_ARTICLE ASC ORDER BY SUM(QUANTITE_COMMADEE)  DESC LIMIT 10 ", con);
+			DataTable^ dt = gcnew DataTable();
+			sda->Fill(dt);
+			bindingSource1->DataSource = dt;
+			dataGridView1->DataSource = bindingSource1;
+		}
+		else if (this->table == "REQUETE6")
+		{
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter("SELECT NOM_ARTICLE,SUM(QUANTITE_COMMADEE) AS Quantité FROM ARTICLE INNER JOIN CONTIENT ON ARTICLE.ID_ARTICLE=CONTIENT.ID_ARTICLE GROUP BY NOM_ARTICLE ASC ORDER BY SUM(QUANTITE_COMMADEE) ASC LIMIT 10  ", con);
 			DataTable^ dt = gcnew DataTable();
 			sda->Fill(dt);
 			bindingSource1->DataSource = dt;
